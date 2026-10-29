@@ -1,6 +1,6 @@
 // SHQIP LIVE service worker — cache vetëm shell-in statik të faqes.
 // Stream-et live dhe titujt live (AllOrigins) nuk cache-ohen kurrë: ato merren gjithmonë nga rrjeti.
-const CACHE = "shqiplive-v1";
+const CACHE = "shqiplive-v2";
 const CORE = ["./", "./index.html", "./privacy.html", "./manifest.json", "./icon-192.png", "./icon-512.png"];
 self.addEventListener("install", (e) => {
   e.waitUntil(caches.open(CACHE).then((c) => c.addAll(CORE)).then(() => self.skipWaiting()));

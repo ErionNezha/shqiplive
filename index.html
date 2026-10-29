@@ -61,6 +61,18 @@ footer{font-family:system-ui,sans-serif;color:#5a564e;font-size:12.5px;line-heig
 .savedbox{background:#fff;border:1px solid #e8e2d6;border-top:3px solid #b9975b;padding:16px;margin-bottom:14px}
 .savedbox ul{margin:8px 0 0;padding-left:18px}.savedbox li{margin:8px 0;line-height:1.4}
 .livetag{font-family:system-ui,sans-serif;font-size:11px;font-weight:800;background:#121212;color:#b9975b;padding:3px 7px;margin-left:8px;letter-spacing:1px}
+
+body.dark{background:#121212;color:#f6f3ec}
+body.dark a{color:#f6f3ec}
+body.dark .src,body.dark .hl,body.dark .storybox,body.dark .savedbox{background:#1e1e1e;border-color:#333}
+body.dark .src p,body.dark .muted{color:#b8b2a4}
+body.dark .search input{background:#222;color:#f6f3ec;border-color:#444}
+body.dark .filters button,body.dark .story,body.dark .savebtn{background:#222;color:#f6f3ec;border-color:#444}
+body.dark .filters button.on{background:#f6f3ec;color:#121212;border-color:#f6f3ec}
+body.dark .tag{background:#2a2a2a;color:#d8d2c4}
+body.dark footer{color:#b8b2a4;border-color:#333}
+body.dark .btn{background:#222;color:#f6f3ec;border-color:#444}
+body.dark .btn.primary{background:#f6f3ec;color:#121212;border-color:#f6f3ec}
 </style>
 </head>
 <body>
@@ -73,7 +85,7 @@ footer{font-family:system-ui,sans-serif;color:#5a564e;font-size:12.5px;line-heig
 <div class="savedbox" id="myPage"></div>
 </section>
 
-<div class="search"><input id="q" type="search" placeholder="Kërko te titujt e sotëm… p.sh. protestë, SPAK, Kuvend" aria-label="Kërko tituj"><button class="btn" id="clearQ" type="button">Pastro</button></div>
+<div class="search"><input id="q" type="search" placeholder="Kërko te titujt e sotëm… p.sh. protestë, SPAK, Kuvend" aria-label="Kërko tituj"><button class="btn" id="clearQ" type="button">Pastro</button><button class="btn" id="darkBtn" type="button">🌙 Modaliteti i natës</button></div>
 
 <div class="filters" id="topicFilters">
 <button type="button" class="on" data-topic="all">Të gjitha temat</button>
@@ -228,7 +240,9 @@ function renderStory(){document.getElementById("storyList").innerHTML=storyCover
 function renderSummary(){document.getElementById("sumGrid").innerHTML=daySummary.map(function(s){return "<div class='sumcard'><h3><b>"+s.n+".</b> "+s.t+"</h3><p>"+s.d+"</p><p>Burime: "+s.links.map(function(l){return "<a href='"+srcUrl(l)+"' target='_blank' rel='noopener'>"+l+" ↗</a>"}).join(" · ")+"</p></div>"}).join("")}
 function savedTitles(){try{return JSON.parse(localStorage.getItem("lajmet_ruajtur")||"[]")}catch(e){return[]}}
 function renderSaved(){const f=savedTitles(),ul=document.getElementById("savedList");document.getElementById("savedEmpty").style.display=f.length?"none":"block";ul.innerHTML=f.map(function(it,i){return "<li><a href='"+srcUrl(it.src)+"' target='_blank' rel='noopener'>"+it.title+"</a> <small>("+it.src+")</small> <button class='savebtn' data-del='"+i+"'>Hiq</button></li>"}).join("");ul.querySelectorAll("[data-del]").forEach(function(b){b.onclick=function(){let f=savedTitles();f.splice(parseInt(b.dataset.del,10),1);try{localStorage.setItem("lajmet_ruajtur",JSON.stringify(f))}catch(e){} renderSaved();renderHeadlines()}})}
-renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();renderMyPage();play(0);loadLiveHeadlines();
+function applyDark(){const d=localStorage.getItem("lajmet_dark")==="1";document.body.classList.toggle("dark",d);const b=document.getElementById("darkBtn");if(b)b.textContent=d?"☀️ Modaliteti i ditës":"🌙 Modaliteti i natës"}
+document.getElementById("darkBtn").onclick=function(){const d=document.body.classList.toggle("dark");try{localStorage.setItem("lajmet_dark",d?"1":"0")}catch(e){} applyDark()};
+applyDark();renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();renderMyPage();play(0);loadLiveHeadlines();
 </script>
 </body>
 </html>

@@ -68,6 +68,11 @@ footer{font-family:system-ui,sans-serif;color:#5a564e;font-size:12.5px;line-heig
 <div class="wrap">
 <div class="mast"><div class="date">E enjte • 29 Tetor 2026 • Tiranë</div><h1>TË GJITHA <span>LAJMET</span></h1><p>Në një vend. Pa u futur në 18 faqe të ndara. Plus live TV.</p></div>
 
+<section aria-label="Faqja ime">
+<h2>⭐ Faqja ime</h2>
+<div class="savedbox" id="myPage"></div>
+</section>
+
 <div class="search"><input id="q" type="search" placeholder="Kërko te titujt e sotëm… p.sh. protestë, SPAK, Kuvend" aria-label="Kërko tituj"><button class="btn" id="clearQ" type="button">Pastro</button></div>
 
 <div class="filters" id="topicFilters">
@@ -179,14 +184,14 @@ else if(video.canPlayType("application/vnd.apple.mpegurl")){video.src=ch.src;vid
 else{statusEl.textContent="Ky browser nuk mbështet HLS."}
 renderStories()}
 function renderSources(){const f=favs(),el=document.getElementById("sources");el.innerHTML="";sources.filter(function(s){if(topic==="fav")return f.includes(s.name);if(topic==="all")return true;return s.topics.includes(topic)}).forEach(function(s){const d=document.createElement("div");d.className="src";d.innerHTML="<h3>"+s.name+"</h3><p>"+s.desc+"</p><div>"+s.topics.map(function(t){return "<span class='tag'>"+t+"</span>"}).join("")+"</div><p><a class='btn primary' href='"+s.url+"' target='_blank' rel='noopener'>Hap faqen zyrtare ↗</a> <button class='btn favbtn' data-name='"+s.name+"'>"+(f.includes(s.name)?"★ E preferuar":"☆ Bëje të preferuar")+"</button> <span class='tag'>"+s.type+"</span></p>";el.appendChild(d)});
-document.querySelectorAll(".favbtn").forEach(function(b){b.onclick=function(){let f=favs();const n=b.dataset.name,i=f.indexOf(n);if(i>=0)f.splice(i,1);else f.push(n);try{localStorage.setItem("lajmet_fav",JSON.stringify(f))}catch(e){} renderSources()}})}
+document.querySelectorAll(".favbtn").forEach(function(b){b.onclick=function(){let f=favs();const n=b.dataset.name,i=f.indexOf(n);if(i>=0)f.splice(i,1);else f.push(n);try{localStorage.setItem("lajmet_fav",JSON.stringify(f))}catch(e){} renderSources();renderMyPage()}})}
 function renderHeadlines(){const q=(document.getElementById("q").value||"").toLowerCase(),el=document.getElementById("headlines");el.innerHTML="";let count=0;headlines.forEach(function(g){const src=sources.find(function(s){return s.name===g.src});const url=src?src.url:"#";let disp=[];if(liveTitles[g.src]){disp=liveTitles[g.src].map(function(it){return {title:it.title,url:it.link}})}else{disp=g.items.map(function(it){return {title:it,url:url}})}
 const items=disp.filter(function(it){return !q||it.title.toLowerCase().includes(q)});if(!items.length)return;count+=items.length;const d=document.createElement("div");d.className="hl";const sv=savedTitles();d.innerHTML="<h3>"+g.src+(liveTitles[g.src]?"<span class='livetag'>LIVE</span>":"")+"</h3><ul>"+items.map(function(it){const isSv=sv.some(function(x){return x.title===it.title});return "<li><a href='"+it.url+"' target='_blank' rel='noopener'>"+it.title+"</a><button class='savebtn"+(isSv?" on":"")+"' data-src='"+g.src+"' data-title='"+it.title.replace(/'/g,"&#39;")+"'>"+(isSv?"★ E ruajtur":"☆ Ruaj")+"</button></li>"}).join("")+"</ul>";el.appendChild(d)});el.querySelectorAll(".savebtn[data-src]").forEach(function(b){b.onclick=function(){let f=savedTitles();const it={src:b.dataset.src,title:b.dataset.title};const i=f.findIndex(function(x){return x.title===it.title});if(i>=0)f.splice(i,1);else f.push(it);try{localStorage.setItem("lajmet_ruajtur",JSON.stringify(f))}catch(e){} renderSaved();renderHeadlines()}});document.getElementById("noResults").style.display=count?"none":"block"}
 const rssFeeds={"News24":"https://www.news24.al/feed/","Panorama":"https://panorama.com.al/feed/","Euronews Albania":"https://euronews.al/feed/","Gazeta Shqiptare":"https://gazetashqiptare.al/feed/","JavaNews":"https://javanews.al/feed/","Telegrafi":"https://telegrafi.com/rss"};
 let liveTitles={};
 async function loadLiveHeadlines(){const names=Object.keys(rssFeeds);let ok=0;for(const name of names){try{const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(rssFeeds[name]));if(!r.ok)continue;const txt=await r.text();const xml=new DOMParser().parseFromString(txt,"text/xml");const items=Array.from(xml.querySelectorAll("item")).slice(0,3).map(function(it){return {title:(it.querySelector("title")||{}).textContent||"",link:(it.querySelector("link")||{}).textContent||""}}).filter(function(it){return it.title});if(items.length){liveTitles[name]=items;ok++}}catch(e){}}
 document.getElementById("liveStatus").textContent="Tituj live: "+ok+" nga 6 burime me RSS u përditësuan tani ("+names.filter(function(n){return liveTitles[n]}).join(", ")+"). 12 burimet e tjera pa RSS mbajnë titujt e 29 tetorit 2026. Përmbledhja e ditës dhe \u201cNjë lajm, shumë burime\u201d mbeten të 29 tetorit.";
-if(ok)renderHeadlines()}
+if(ok){renderHeadlines();renderMyPage()}}
 document.querySelectorAll("#topicFilters button").forEach(function(b){b.onclick=function(){document.querySelectorAll("#topicFilters button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");topic=b.dataset.topic;renderSources()}});
 document.getElementById("q").addEventListener("input",renderHeadlines);
 document.getElementById("clearQ").onclick=function(){document.getElementById("q").value="";renderHeadlines()};
@@ -216,11 +221,14 @@ const daySummary=[
 {n:"5",t:"Beqaj në GJKKO",d:"Ish-ministri i Shëndetësisë Ilir Beqaj u paraqit në GJKKO, i shoqëruar nga oficeri i policisë.",links:["Top Channel","Panorama"]}
 ];
 function srcUrl(name){const s=sources.find(function(x){return x.name===name});return s?s.url:"#"}
+function renderMyPage(){const f=favs(),el=document.getElementById("myPage");if(!f.length){el.innerHTML="<p class='muted' style='margin:0'>Ende s\'ke zgjedhur të preferuara. Prek ⭐ te një faqe më poshtë dhe ajo do të dalë këtu, e para.</p>";return}
+let html="";f.forEach(function(name){const src=sources.find(function(s){return s.name===name});if(!src)return;const g=headlines.find(function(h){return h.src===name});let disp=[];if(liveTitles[name]){disp=liveTitles[name].map(function(it){return {title:it.title,url:it.link}})}else if(g){disp=g.items.map(function(it){return {title:it,url:src.url}})}
+html+="<h3 style='margin:14px 0 6px'>"+name+(liveTitles[name]?"<span class='livetag'>LIVE</span>":"")+"</h3><ul style='margin:0 0 8px;padding-left:18px'>"+disp.map(function(it){return "<li style='margin:7px 0;line-height:1.4'><a href='"+it.url+"' target='_blank' rel='noopener'>"+it.title+"</a></li>"}).join("")+"</ul><p style='margin:0 0 10px'><a class='btn' href='"+src.url+"' target='_blank' rel='noopener'>Hap "+name+" ↗</a></p>"});el.innerHTML=html}
 function renderStory(){document.getElementById("storyList").innerHTML=storyCoverage.map(function(c){return "<li><b>"+c.src+":</b> <a href='"+srcUrl(c.src)+"' target='_blank' rel='noopener'>"+c.title+"</a></li>"}).join("")}
 function renderSummary(){document.getElementById("sumGrid").innerHTML=daySummary.map(function(s){return "<div class='sumcard'><h3><b>"+s.n+".</b> "+s.t+"</h3><p>"+s.d+"</p><p>Burime: "+s.links.map(function(l){return "<a href='"+srcUrl(l)+"' target='_blank' rel='noopener'>"+l+" ↗</a>"}).join(" · ")+"</p></div>"}).join("")}
 function savedTitles(){try{return JSON.parse(localStorage.getItem("lajmet_ruajtur")||"[]")}catch(e){return[]}}
 function renderSaved(){const f=savedTitles(),ul=document.getElementById("savedList");document.getElementById("savedEmpty").style.display=f.length?"none":"block";ul.innerHTML=f.map(function(it,i){return "<li><a href='"+srcUrl(it.src)+"' target='_blank' rel='noopener'>"+it.title+"</a> <small>("+it.src+")</small> <button class='savebtn' data-del='"+i+"'>Hiq</button></li>"}).join("");ul.querySelectorAll("[data-del]").forEach(function(b){b.onclick=function(){let f=savedTitles();f.splice(parseInt(b.dataset.del,10),1);try{localStorage.setItem("lajmet_ruajtur",JSON.stringify(f))}catch(e){} renderSaved();renderHeadlines()}})}
-renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();play(0);loadLiveHeadlines();
+renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();renderMyPage();play(0);loadLiveHeadlines();
 </script>
 </body>
 </html>

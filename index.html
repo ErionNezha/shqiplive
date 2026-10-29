@@ -1,169 +1,515 @@
 <!DOCTYPE html>
 <!-- Created by Erion Nezha — © 2026 All rights reserved -->
-<html lang="sq">
+<html lang="sq" data-theme="dark">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>TË GJITHA LAJMET — në një vend | SHQIP LIVE</title>
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Shqip Live — Të gjitha lajmet. Një ekran.</title>
 <link rel="manifest" href="manifest.json">
-<meta name="theme-color" content="#121212">
+<meta name="theme-color" content="#0C0C0D">
 <link rel="apple-touch-icon" href="icon-192.png">
-<meta name="description" content="Grumbullues premium: të gjitha faqet shqiptare të lajmeve në një vend, plus kanale live TV. Titujt hapen te burimi zyrtar. Created by Mr.Erionxx.">
+<meta name="description" content="Të gjitha faqet shqiptare të lajmeve në një ekran, plus 6 kanale lajmesh live. Titujt hapen gjithmonë te burimi zyrtar. Created by Mr.Erionxx.">
+<meta property="og:title" content="Shqip Live — Të gjitha lajmet. Një ekran.">
+<meta property="og:description" content="18 faqe zyrtare shqiptare dhe 6 kanale lajmesh live, në një vend.">
+<meta property="og:type" content="website">
+<script>try{var t=localStorage.getItem("shqiplive_theme");if(t==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
 <style>
-*{box-sizing:border-box}body{margin:0;background:#f6f3ec;color:#121212;font-family:Georgia,'Times New Roman',serif}
-a{color:#121212}.wrap{max-width:1020px;margin:0 auto;padding:18px 16px 60px}
-.mast{text-align:center;border:0;border-top:3px solid #b9975b;border-bottom:3px solid #b9975b;border-radius:0;padding:28px 16px;background:#121212;color:#fff}
-.mast h1{margin:0;font-size:42px;letter-spacing:2px;line-height:1;font-weight:400}.mast h1 span{color:#b9975b}
-.mast p{font-family:system-ui,sans-serif;color:#d8d2c4;font-size:14px;margin:10px 0 0;letter-spacing:.3px}
-.date{font-family:system-ui,sans-serif;font-size:11px;letter-spacing:3px;font-weight:700;text-transform:uppercase;color:#b9975b}
-.search{margin:22px 0;display:flex;gap:8px;flex-wrap:wrap}
-.search input{flex:1;min-width:220px;padding:13px 15px;border:1px solid #d8d2c4;border-radius:0;font-size:16px;font-family:system-ui,sans-serif;background:#fff;color:#121212}
-.btn{font-family:system-ui,sans-serif;border:1px solid #121212;background:#fff;color:#121212;padding:11px 16px;border-radius:0;font-weight:700;cursor:pointer;text-decoration:none;display:inline-block;letter-spacing:.2px}
-.btn.primary{background:#121212;border-color:#121212;color:#fff}
-.btn.on{background:#121212;color:#fff}
-.filters{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
-.filters button{font-family:system-ui,sans-serif;border:1px solid #d8d2c4;background:#fff;color:#121212;padding:9px 13px;border-radius:0;cursor:pointer;font-weight:600}
-.filters button.on{background:#121212;border-color:#121212;color:#fff}
-.stage{background:#000;overflow:hidden;margin:16px 0 6px;border-top:3px solid #b9975b}
-video{width:100%;aspect-ratio:16/9;display:block;background:#000}
-.bar{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:13px 16px;background:#121212;color:#fff;flex-wrap:wrap}
-#chName{font-size:22px;margin:0}.live{font-family:system-ui,sans-serif;background:#b9975b;color:#121212;font-weight:800;font-size:11px;letter-spacing:2px;padding:5px 9px}
-.stories{display:flex;gap:10px;overflow-x:auto;padding:10px 2px}
-.story{flex:0 0 auto;border:1px solid #d8d2c4;background:#fff;color:#121212;border-radius:0;padding:8px 14px;cursor:pointer;font-family:system-ui,sans-serif;font-weight:700}
-.story.on{border-color:#121212;background:#121212;color:#fff}
-#status{font-family:system-ui,sans-serif;color:#5a564e;font-size:13px}
-h2{font-size:26px;margin:30px 0 10px;font-weight:400;letter-spacing:.5px}.muted{font-family:system-ui,sans-serif;color:#5a564e;font-size:14px;line-height:1.55}
-.sources{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:720px){.sources{grid-template-columns:1fr 1fr}}
-.src{background:#fff;border:1px solid #e8e2d6;border-top:3px solid #b9975b;border-radius:0;padding:18px;transition:transform .2s}.src:hover{transform:translateY(-3px)}
-.src h3{margin:0 0 4px;font-size:21px;font-weight:400;letter-spacing:.3px}.src p{font-family:system-ui,sans-serif;color:#5a564e;font-size:13.5px;line-height:1.5;margin:6px 0 12px}
-.tag{font-family:system-ui,sans-serif;display:inline-block;font-size:11px;font-weight:700;background:#f0ece1;color:#5a564e;padding:4px 8px;margin:2px;letter-spacing:.3px}
-.headlines{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:720px){.headlines{grid-template-columns:1fr 1fr}}
-.hl{background:#fff;border:1px solid #e8e2d6;border-top:3px solid #b9975b;border-radius:0;padding:16px}
-.hl h3{margin:0 0 8px;font-size:17px;font-weight:400}.hl li{margin:8px 0;line-height:1.4}.hl a{color:#121212;text-decoration:none}.hl a:hover{text-decoration:underline;text-decoration-color:#b9975b}
-footer{font-family:system-ui,sans-serif;color:#5a564e;font-size:12.5px;line-height:1.6;margin-top:26px;border-top:1px solid #d8d2c4;padding-top:14px}
-#loader{position:fixed;inset:0;z-index:99;background:#121212;color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;transition:opacity .6s}
-#loader.hide{opacity:0;pointer-events:none}
-.ld-logo{font-size:36px;font-weight:400;letter-spacing:3px;text-align:center}.ld-logo span{color:#b9975b}
-.ld-sub{font-family:system-ui,sans-serif;color:#d8d2c4;font-size:14px;letter-spacing:.3px}
-.ld-bar{width:220px;height:2px;background:rgba(255,255,255,.2);overflow:hidden}.ld-bar i{display:block;height:100%;width:40%;background:#b9975b;animation:ld 1.1s ease-in-out infinite alternate}
-@keyframes ld{from{transform:translateX(0)}to{transform:translateX(150%)}}
+:root{
+  --bg:#0C0C0D;--bg2:#121214;--bg3:#18181B;--line:#26262A;--line2:#3A3A40;
+  --ink:#F3F0EA;--ink2:#C9C5BE;--mute:#A19D96;--accent:#E3271D;--onaccent:#fff;
+  --inv-bg:#F3F0EA;--inv-ink:#0C0C0D;--shadow:0 24px 60px rgba(0,0,0,.55);
+  --serif:"Instrument Serif",Georgia,"Times New Roman",serif;
+  --sans:"Inter Tight",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,SFMono-Regular,Menlo,monospace;
+}
+[data-theme=light]{
+  --bg:#F5F2EB;--bg2:#EDE9E0;--bg3:#E6E1D6;--line:#DAD4C7;--line2:#BDB6A8;
+  --ink:#111112;--ink2:#3D3A35;--mute:#625E57;--accent:#D21F16;
+  --inv-bg:#111112;--inv-ink:#F5F2EB;--shadow:0 24px 60px rgba(17,17,18,.22);
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:var(--sans);-webkit-font-smoothing:antialiased;transition:background .35s,color .35s}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit}
+img,video,iframe{display:block}
+a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(--ink);outline-offset:3px;border-radius:4px}
+::selection{background:var(--accent);color:#fff}
+.wrap{max-width:1320px;margin:0 auto;padding-inline:clamp(16px,4vw,48px)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--mute)}
+.h2{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(40px,5.5vw,80px);line-height:.95;letter-spacing:-.02em}
+.it{font-style:italic;color:var(--mute)}
+.lead{margin:0;max-width:420px;font-size:16px;line-height:1.55;color:var(--ink2)}
+.sec{border-top:1px solid var(--line)}
+.sec>.wrap{padding-block:clamp(64px,8vw,112px)}
+.sec-head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:flex-end;gap:24px 48px;margin-bottom:clamp(28px,4vw,44px)}
+.sec-head .t{display:flex;flex-direction:column;gap:18px}
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:44px;padding:0 18px;border:1px solid var(--line2);border-radius:999px;background:transparent;font-size:14px;font-weight:500;cursor:pointer;transition:background .2s,border-color .2s,color .2s;white-space:nowrap}
+.pill:hover{border-color:var(--ink)}
+.pill.solid{background:var(--inv-bg);color:var(--inv-ink);border-color:var(--inv-bg);font-weight:600}
+.pill.solid:hover{opacity:.9}
+.pill.sm{min-height:40px;padding:0 14px;font-size:13px}
+.ib{width:44px;height:44px;display:inline-flex;align-items:center;justify-content:center;border:1px solid var(--line2);border-radius:999px;background:transparent;cursor:pointer;flex:none;transition:border-color .2s,background .2s,color .2s}
+.ib:hover{border-color:var(--ink)}
+.ib.sm{width:38px;height:38px}
+.ib.on{border-color:var(--accent);color:var(--accent)}
+.ib.on svg{fill:currentColor}
+.ib svg{width:17px;height:17px}
+.tag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--mute);border:1px solid var(--line);border-radius:3px;padding:4px 7px}
+.livetag{display:inline-flex;align-items:center;gap:6px;font-family:var(--mono);font-size:10px;font-weight:500;letter-spacing:.18em;background:var(--accent);color:var(--onaccent);border-radius:3px;padding:4px 7px 3px}
+.dot{width:7px;height:7px;border-radius:999px;background:currentColor;flex:none}
+.pulse{animation:pulse 1.6s ease-in-out infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
+.clamp3{display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
+.clamp2{display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .8s cubic-bezier(.2,.7,.2,1),transform .8s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
 
-.stage.mini{position:fixed;right:14px;bottom:14px;width:320px;max-width:calc(100vw - 28px);z-index:80;box-shadow:0 18px 40px rgba(0,0,0,.45)}
-.stage.mini .bar{padding:8px 10px}.stage.mini #chName{font-size:16px}
-.storybox{background:#fff;border:1px solid #e8e2d6;border-top:3px solid #b9975b;padding:18px}
-.storybox ul{margin:10px 0 0;padding-left:18px}.storybox li{margin:9px 0;line-height:1.45}
-.sumgrid{display:grid;grid-template-columns:1fr;gap:14px}
-@media(min-width:720px){.sumgrid{grid-template-columns:1fr 1fr}}
-.sumcard{background:#121212;color:#fff;padding:18px}.sumcard h3{margin:0 0 6px;font-weight:400;font-size:19px}.sumcard h3 b{color:#b9975b}
-.sumcard p{font-family:system-ui,sans-serif;color:#d8d2c4;font-size:13.5px;line-height:1.55;margin:6px 0 10px}
-.sumcard a{color:#b9975b}
-.savebtn{font-family:system-ui,sans-serif;border:1px solid #d8d2c4;background:#fff;color:#121212;padding:3px 8px;margin-left:6px;cursor:pointer;font-size:12px}
-.savebtn.on{background:#121212;color:#fff;border-color:#121212}
-.savedbox{background:#fff;border:1px solid #e8e2d6;border-top:3px solid #b9975b;padding:16px;margin-bottom:14px}
-.savedbox ul{margin:8px 0 0;padding-left:18px}.savedbox li{margin:8px 0;line-height:1.4}
-.livetag{font-family:system-ui,sans-serif;font-size:11px;font-weight:800;background:#121212;color:#b9975b;padding:3px 7px;margin-left:8px;letter-spacing:1px}
+/* loader */
+#loader{position:fixed;inset:0;z-index:200;background:#0C0C0D;color:#F3F0EA;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:22px;transition:opacity .7s,visibility .7s}
+#loader.hide{opacity:0;visibility:hidden}
+.ld-word{font-family:var(--serif);font-size:56px;line-height:1;letter-spacing:-.02em;display:flex;align-items:center;gap:14px}
+.ld-word b{font-family:var(--mono);font-weight:500;font-size:12px;letter-spacing:.22em;background:#E3271D;color:#fff;padding:6px 9px 5px;border-radius:2px}
+.ld-bar{width:180px;height:1px;background:rgba(243,240,234,.18);overflow:hidden}
+.ld-bar i{display:block;height:100%;width:35%;background:#E3271D;animation:ld 1s cubic-bezier(.6,0,.4,1) infinite alternate}
+@keyframes ld{from{transform:translateX(-10%)}to{transform:translateX(200%)}}
+.ld-sub{font-family:var(--mono);font-size:11px;letter-spacing:.18em;color:#A19D96;text-transform:uppercase}
 
-body.dark{background:#121212;color:#f6f3ec}
-body.dark a{color:#f6f3ec}
-body.dark .src,body.dark .hl,body.dark .storybox,body.dark .savedbox{background:#1e1e1e;border-color:#333}
-body.dark .src p,body.dark .muted{color:#b8b2a4}
-body.dark .search input{background:#222;color:#f6f3ec;border-color:#444}
-body.dark .filters button,body.dark .story,body.dark .savebtn{background:#222;color:#f6f3ec;border-color:#444}
-body.dark .filters button.on{background:#f6f3ec;color:#121212;border-color:#f6f3ec}
-body.dark .tag{background:#2a2a2a;color:#d8d2c4}
-body.dark footer{color:#b8b2a4;border-color:#333}
-body.dark .btn{background:#222;color:#f6f3ec;border-color:#444}
-body.dark .btn.primary{background:#f6f3ec;color:#121212;border-color:#f6f3ec}
+/* header */
+.top{position:sticky;top:0;z-index:60;background:color-mix(in srgb,var(--bg) 88%,transparent);backdrop-filter:saturate(1.2) blur(14px);-webkit-backdrop-filter:saturate(1.2) blur(14px);border-bottom:1px solid var(--line)}
+.top .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px 32px;min-height:72px}
+.logo{display:flex;align-items:center;gap:12px}
+.logo span{font-family:var(--serif);font-size:34px;line-height:1;letter-spacing:-.01em}
+.logo b{font-family:var(--mono);font-weight:500;font-size:11px;letter-spacing:.22em;padding:5px 8px 4px;background:var(--accent);color:var(--onaccent);border-radius:2px}
+.nav{display:flex;gap:28px;font-size:14px;color:var(--ink2)}
+.nav a{position:relative;padding:6px 0}
+.nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--accent);transition:right .3s}
+.nav a:hover{color:var(--ink)}.nav a:hover::after{right:0}
+.tools{display:flex;gap:8px}
+.ib .cnt{position:absolute;top:-4px;right:-4px;min-width:18px;height:18px;padding:0 5px;border-radius:999px;background:var(--accent);color:#fff;font-family:var(--mono);font-size:10px;display:none;align-items:center;justify-content:center}
+.ib .cnt.show{display:flex}
+.strip{border-top:1px solid var(--line)}
+.strip .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:6px 24px;padding-block:9px;font-family:var(--mono);font-size:10.5px;letter-spacing:.16em;color:var(--mute);text-transform:uppercase}
+@media(max-width:900px){.nav{display:none}}
+@media(max-width:560px){.strip .r{display:none}.logo span{font-size:30px}}
+
+/* ticker */
+.ticker{display:flex;align-items:stretch;border-bottom:1px solid var(--line);overflow:hidden}
+.tk-lbl{flex:none;display:flex;align-items:center;gap:10px;padding:0 18px;background:var(--accent);color:var(--onaccent);font-family:var(--mono);font-size:11px;font-weight:500;letter-spacing:.2em}
+.tk-view{flex:1;min-width:0;overflow:hidden;mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent);-webkit-mask-image:linear-gradient(90deg,transparent,#000 40px,#000 calc(100% - 40px),transparent)}
+.tk-track{display:flex;gap:56px;width:max-content;white-space:nowrap;padding:13px 0 13px 40px;animation:mq 80s linear infinite}
+.ticker:hover .tk-track{animation-play-state:paused}
+@keyframes mq{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+.tk-item{display:flex;gap:12px;align-items:baseline;font-size:14px;color:var(--ink2)}
+.tk-item:hover{color:var(--ink)}
+.tk-item em{font-style:normal;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+
+/* hero */
+.hero .wrap{padding-block:clamp(48px,8vw,112px) clamp(36px,5vw,64px);display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:32px 48px}
+.hero h1{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(54px,9.5vw,148px);line-height:.9;letter-spacing:-.028em}
+.hero h1 span{display:block}
+.hero-side{max-width:400px;display:flex;flex-direction:column;gap:24px}
+.hero-side p{margin:0;font-size:17px;line-height:1.55;color:var(--ink2)}
+.hero-cta{display:flex;flex-wrap:wrap;gap:12px}
+.hero-cta .dot{background:var(--accent)}
+.kpis{display:flex;gap:28px;padding-top:4px}
+.kpi b{display:block;font-family:var(--serif);font-weight:400;font-size:40px;line-height:1}
+.kpi span{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+
+/* live */
+.live-meta{display:flex;flex-wrap:wrap;justify-content:space-between;gap:8px 24px;padding-bottom:18px}
+.live-grid{display:flex;flex-wrap:wrap;gap:20px}
+.live-main{flex:999 1 640px;min-width:0;display:flex;flex-direction:column;gap:14px}
+.slot{position:relative;aspect-ratio:16/9;border:1px solid var(--line);border-radius:8px;overflow:hidden;background:#09090A}
+.slot-note{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;padding:24px;text-align:center;color:#A19D96;font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase}
+.stage{position:absolute;inset:0;background:#000;z-index:1}
+.stage video,.stage iframe{width:100%;height:100%;border:0;background:#000;object-fit:contain}
+.mini-head{display:none}
+.stage.mini{position:fixed;inset:auto 16px 16px auto;width:min(360px,calc(100vw - 32px));aspect-ratio:auto;z-index:90;border-radius:10px;overflow:hidden;box-shadow:var(--shadow);border:1px solid #26262A;animation:pop .35s cubic-bezier(.2,.8,.2,1)}
+.stage.mini .vbox{aspect-ratio:16/9}
+.stage.mini .mini-head{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:8px 8px 8px 12px;background:#121214;color:#F3F0EA;font-size:13px;font-weight:500}
+.stage.mini .mini-head .ib{width:36px;height:36px;border-color:#3A3A40;color:#F3F0EA}
+.vbox{position:relative;width:100%;height:100%}
+.stage.mini .vbox{height:auto}
+@keyframes pop{from{transform:translateY(16px) scale(.96);opacity:0}to{transform:none;opacity:1}}
+.cover{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;padding:56px 24px;text-align:center;color:#F3F0EA;background-color:#111113;background-image:repeating-linear-gradient(0deg,rgba(255,255,255,.028) 0 1px,transparent 1px 4px);transition:opacity .6s,visibility .6s;pointer-events:none}
+.cover.off{opacity:0;visibility:hidden}
+.cover small{font-family:var(--mono);font-size:11px;letter-spacing:.22em;color:#A19D96;text-transform:uppercase}
+.cover strong{font-family:var(--serif);font-weight:400;font-size:clamp(40px,7vw,100px);line-height:.95;letter-spacing:-.02em}
+.cover .ld-bar{margin-top:6px}
+.cover-top{position:absolute;top:0;left:0;right:0;display:flex;justify-content:space-between;align-items:center;padding:16px 18px;z-index:3;pointer-events:none}
+.cover-top span:last-child{font-family:var(--mono);font-size:11.5px;letter-spacing:.14em;color:#C9C5BE}
+.ctrl{display:flex;flex-wrap:wrap;align-items:center;gap:10px}
+.ctrl .sp{flex:1}
+.status{margin:0;font-size:13px;color:var(--mute);line-height:1.5;min-height:20px}
+.status b{color:var(--ink);font-weight:500}
+.rail{flex:1 1 300px;min-width:0;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:8px;overflow:hidden;align-self:flex-start}
+.rail-h{display:flex;justify-content:space-between;align-items:baseline;padding:16px 20px}
+.ch{display:flex;align-items:center;gap:16px;width:100%;min-height:72px;padding:14px 20px;background:transparent;border:0;border-top:1px solid var(--line);text-align:left;cursor:pointer;transition:background .2s}
+.ch:hover{background:var(--bg2)}
+.ch.on{background:var(--bg3)}
+.ch .n{font-family:var(--mono);font-size:12px;color:var(--mute);width:22px}
+.ch.on .n{color:var(--ink)}
+.ch .nm{flex:1;display:flex;flex-direction:column;gap:3px}
+.ch .nm b{font-size:16.5px;font-weight:500}
+.ch.on .nm b{font-weight:600}
+.ch .nm span{font-size:12.5px;color:var(--mute)}
+.ch .chev{color:var(--mute);width:16px;height:16px}
+.ch .livetag{display:none}
+.ch.on .livetag{display:inline-flex}
+.ch.on .chev{display:none}
+.fine{margin:0;font-size:12.5px;line-height:1.55;color:var(--mute);max-width:760px}
+
+/* minute */
+.minute .wrap{display:flex;flex-wrap:wrap;gap:40px 64px}
+.minute .side{flex:1 1 300px;display:flex;flex-direction:column;gap:18px}
+.mlist{flex:999 1 560px;min-width:0;margin:0;padding:0;list-style:none;border-bottom:1px solid var(--line)}
+.mlist li{display:flex;gap:clamp(18px,3vw,40px);padding:28px 0;border-top:1px solid var(--line)}
+.mlist .num{flex:none;width:60px;font-family:var(--serif);font-style:italic;font-size:58px;line-height:.78;color:var(--accent)}
+.mlist .body{flex:1;min-width:0;display:flex;flex-direction:column;gap:10px}
+.mlist h3{margin:0;font-size:clamp(20px,2.2vw,26px);line-height:1.2;font-weight:600;letter-spacing:-.01em}
+.mlist p{margin:0;font-size:15.5px;line-height:1.55;color:var(--ink2)}
+.srcs{display:flex;flex-wrap:wrap;gap:6px 16px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase}
+.srcs a{color:var(--mute);border-bottom:1px solid transparent;transition:color .2s,border-color .2s}
+.srcs a:hover{color:var(--ink);border-color:var(--accent)}
+
+/* voices */
+.voices{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,320px),1fr));border-top:1px solid var(--line);border-left:1px solid var(--line)}
+.voice{display:flex;flex-direction:column;justify-content:space-between;gap:28px;min-height:250px;padding:28px;border-right:1px solid var(--line);border-bottom:1px solid var(--line);transition:background .25s}
+.voice:hover{background:var(--bg2)}
+.voice .vh{display:flex;justify-content:space-between;gap:12px}
+.voice h3{margin:0;font-family:var(--serif);font-weight:400;font-size:28px;line-height:1.12}
+.voice .go{font-size:13px;color:var(--ink2);display:flex;align-items:center;gap:8px}
+.voice:hover .go{color:var(--ink)}
+.voice .go svg{width:14px;height:14px;transition:transform .25s}
+.voice:hover .go svg{transform:translate(2px,-2px)}
+
+/* pulse band */
+.band{border-top:1px solid var(--line);background:var(--bg2)}
+.band .wrap{padding-block:clamp(40px,5vw,64px);display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,220px),1fr));gap:28px 40px}
+.stat{display:flex;flex-direction:column;gap:10px}
+.stat b{font-family:var(--serif);font-weight:400;font-size:clamp(44px,5vw,68px);line-height:.95;letter-spacing:-.02em;word-break:break-word}
+.stat b.word{font-style:italic}
+.stat span{font-size:13.5px;color:var(--ink2);line-height:1.45}
+
+/* toolbar + feed */
+.toolbar{display:flex;flex-direction:column;gap:16px;margin-bottom:28px}
+.search{display:flex;align-items:center;gap:10px;min-height:52px;padding:0 8px 0 18px;border:1px solid var(--line2);border-radius:999px;max-width:560px;transition:border-color .2s}
+.search:focus-within{border-color:var(--ink)}
+.search svg{width:17px;height:17px;color:var(--mute);flex:none}
+.search input{flex:1;min-width:0;background:transparent;border:0;outline:none;color:var(--ink);font:inherit;font-size:15.5px}
+.search input::placeholder{color:var(--mute)}
+.search input::-webkit-search-cancel-button{display:none}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{min-height:40px;padding:0 16px;border:1px solid var(--line2);border-radius:999px;background:transparent;color:var(--ink2);font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}
+.chip:hover{border-color:var(--ink);color:var(--ink)}
+.chip.on{background:var(--inv-bg);border-color:var(--inv-bg);color:var(--inv-ink);font-weight:600}
+.latest{border-bottom:1px solid var(--line)}
+.row{display:flex;flex-wrap:wrap;align-items:center;gap:8px 28px;padding:18px 0;border-top:1px solid var(--line)}
+.row .tm{flex:none;width:52px;font-family:var(--mono);font-size:13px}
+.row .who{flex:0 0 170px;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.row .ttl{flex:1 1 320px;min-width:0;font-size:17.5px;line-height:1.38;font-weight:500}
+.row .ttl:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.row .act{display:flex;gap:8px}
+.empty{margin:0;padding:36px 0;border-top:1px solid var(--line);color:var(--mute);font-size:15px;line-height:1.55}
+@media(max-width:620px){.row .who{flex-basis:auto}.row .tm{width:auto}}
+.groups{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,380px),1fr));gap:16px}
+.group{border:1px solid var(--line);border-radius:8px;padding:22px 22px 8px;display:flex;flex-direction:column;background:var(--bg)}
+.group-h{display:flex;justify-content:space-between;align-items:center;gap:12px;padding-bottom:14px}
+.group-h h3{margin:0;font-family:var(--serif);font-weight:400;font-size:30px;line-height:1;display:flex;align-items:center;gap:10px}
+.group ul{margin:0;padding:0;list-style:none}
+.hl{display:flex;gap:14px;align-items:flex-start;padding:14px 0;border-top:1px solid var(--line)}
+.hl a{flex:1;min-width:0;font-size:15.5px;line-height:1.42}
+.hl a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
+.hl .act{display:flex;gap:6px;flex:none}
+.group .open{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);margin-top:auto;font-size:13px;color:var(--ink2)}
+.group .open:hover{color:var(--ink)}
+.sub-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:clamp(56px,7vw,88px) 0 22px}
+.sub-h h3{margin:0;font-family:var(--serif);font-weight:400;font-size:clamp(32px,3.6vw,48px);line-height:1;letter-spacing:-.015em}
+
+/* sources */
+.srcgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,280px),1fr));gap:12px}
+.src{display:flex;flex-direction:column;gap:14px;padding:22px;border:1px solid var(--line);border-radius:8px;transition:border-color .25s,transform .25s}
+.src:hover{border-color:var(--line2);transform:translateY(-2px)}
+.src-h{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.src h3{margin:0;font-family:var(--serif);font-weight:400;font-size:32px;line-height:1}
+.src p{margin:0;font-size:14px;line-height:1.5;color:var(--ink2)}
+.src .tags{display:flex;flex-wrap:wrap;gap:6px}
+.src .open{margin-top:auto;display:flex;align-items:center;justify-content:space-between;padding-top:14px;border-top:1px solid var(--line);font-size:13.5px;font-weight:500}
+.src .open svg{width:14px;height:14px;transition:transform .25s}
+.src .open:hover svg{transform:translate(2px,-2px)}
+
+/* footer */
+.foot{border-top:1px solid var(--line)}
+.foot .wrap{padding-block:clamp(56px,7vw,96px) 32px;display:flex;flex-direction:column;gap:44px}
+.bigword{font-family:var(--serif);font-size:clamp(72px,15.5vw,236px);line-height:.82;letter-spacing:-.035em}
+.bigword i{color:var(--accent)}
+.foot-row{display:flex;flex-wrap:wrap;justify-content:space-between;gap:16px 32px;padding-top:24px;border-top:1px solid var(--line);font-size:13px;color:var(--mute);line-height:1.6}
+.foot-row nav{display:flex;flex-wrap:wrap;gap:8px 24px}
+.foot-row a{color:var(--ink2)}.foot-row a:hover{color:var(--ink)}
+.foot-row .credit a{color:var(--ink)}
+
+/* drawer + toast */
+.scrim{position:fixed;inset:0;z-index:120;background:rgba(0,0,0,.5);opacity:0;visibility:hidden;transition:opacity .3s,visibility .3s}
+.scrim.on{opacity:1;visibility:visible}
+.drawer{position:fixed;top:0;right:0;bottom:0;z-index:121;width:min(440px,100%);background:var(--bg);border-left:1px solid var(--line);display:flex;flex-direction:column;transform:translateX(100%);transition:transform .4s cubic-bezier(.2,.8,.2,1);box-shadow:var(--shadow)}
+.drawer.on{transform:none}
+.dr-h{display:flex;justify-content:space-between;align-items:center;padding:20px 22px;border-bottom:1px solid var(--line)}
+.dr-h h2{margin:0;font-family:var(--serif);font-weight:400;font-size:34px;line-height:1}
+.dr-b{flex:1;overflow:auto;padding:4px 22px 22px}
+.dr-b .hl a{font-size:15px}
+.dr-b small{display:block;margin-top:6px;font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.toast{position:fixed;left:16px;bottom:16px;z-index:110;width:min(440px,calc(100vw - 32px));background:var(--bg);border:1px solid var(--line2);border-radius:10px;box-shadow:var(--shadow);padding:16px 16px 16px 18px;display:flex;gap:14px;align-items:flex-start;transform:translateY(140%);transition:transform .5s cubic-bezier(.2,.8,.2,1)}
+.toast{visibility:hidden}.toast.on{transform:none;visibility:visible}
+.more{display:flex;justify-content:center;padding-top:28px}
+.toast .tb{flex:1;min-width:0;display:flex;flex-direction:column;gap:8px}
+.toast a{font-size:15.5px;line-height:1.4;font-weight:500}
+.toast small{font-family:var(--mono);font-size:10.5px;letter-spacing:.14em;color:var(--mute);text-transform:uppercase}
+.newbar{display:block;border-bottom:1px solid var(--line);background:var(--bg2);transition:background .2s}
+.newbar:hover{background:var(--bg3)}
+.newbar[hidden]{display:none}
+.newbar .wrap{display:flex;align-items:center;gap:12px;padding-block:12px;font-size:14px;color:var(--ink2)}
+.newbar .dot{color:var(--accent)}
+.newbar b{color:var(--ink);font-weight:600}
+.newbar .go{margin-left:auto;font-family:var(--mono);font-size:11px;letter-spacing:.14em;color:var(--ink);white-space:nowrap}
+.newtag{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--accent);margin-left:10px}
+.bars{display:flex;align-items:flex-end;gap:4px;height:64px;margin-top:6px}
+.bars i{flex:1;background:var(--line2);border-radius:2px 2px 0 0;min-height:3px;transform-origin:bottom;animation:grow .8s cubic-bezier(.2,.8,.2,1) both}
+.bars i.pk{background:var(--accent)}
+@keyframes grow{from{transform:scaleY(0)}to{transform:none}}
+.bars-x{display:flex;justify-content:space-between;font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:var(--mute)}
+#coverName{view-transition-name:chname}
+::view-transition-group(chname){animation-duration:.5s}
+::view-transition-old(root),::view-transition-new(root){animation-duration:.45s}
+.regjia{position:fixed;inset:0;z-index:150;background:#0C0C0D;color:#F3F0EA;display:none;flex-direction:column}
+.regjia.on{display:flex;animation:fade .35s ease}
+@keyframes fade{from{opacity:0}to{opacity:1}}
+.rg-h{display:flex;justify-content:space-between;align-items:center;gap:16px;padding:14px clamp(16px,3vw,32px);border-bottom:1px solid #26262A}
+.rg-h h2{margin:0;font-family:var(--serif);font-weight:400;font-size:34px;line-height:1}
+.rg-h .ib{color:#F3F0EA;border-color:#3A3A40}
+.rg-grid{flex:1;min-height:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));grid-auto-rows:minmax(0,1fr);gap:8px;padding:8px}
+.rg-cell{position:relative;background:#000;border:1px solid #26262A;border-radius:6px;overflow:hidden;cursor:pointer;padding:0;color:#F3F0EA;transition:border-color .25s,box-shadow .25s}
+.rg-cell video{width:100%;height:100%;object-fit:contain;pointer-events:none;display:block}
+.rg-cell.on{border-color:#E3271D;box-shadow:0 0 0 1px #E3271D}
+.rg-lbl{position:absolute;left:10px;bottom:10px;right:10px;display:flex;gap:10px;align-items:center;font-size:14px}
+.rg-lbl b{font-weight:600;text-shadow:0 1px 8px rgba(0,0,0,.8)}
+.rg-hint{margin-left:auto;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;background:rgba(12,12,13,.8);padding:5px 8px;border-radius:3px;color:#C9C5BE}
+.rg-cell.on .rg-hint{color:#fff;background:#E3271D}
+@media(max-width:760px) and (orientation:portrait){.rg-grid{display:flex;flex-direction:column;overflow-y:auto}.rg-cell{flex:none;width:100%;aspect-ratio:16/9}}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+@media (prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}.reveal{opacity:1;transform:none}}
 </style>
 </head>
 <body>
-<div id="loader" aria-hidden="true"><div class="ld-logo">TË GJITHA <span>LAJMET</span></div><div class="ld-sub">Po mblidhen lajmet nga të gjitha faqet…</div><div class="ld-bar"><i></i></div></div>
-<div class="wrap">
-<div class="mast"><div class="date">E enjte • 29 Tetor 2026 • Tiranë</div><h1>TË GJITHA <span>LAJMET</span></h1><p>Në një vend. Pa u futur në 18 faqe të ndara. Plus live TV.</p></div>
-
-<section aria-label="Faqja ime">
-<h2>⭐ Faqja ime</h2>
-<div class="savedbox" id="myPage"></div>
-</section>
-
-<div class="search"><input id="q" type="search" placeholder="Kërko te titujt e sotëm… p.sh. protestë, SPAK, Kuvend" aria-label="Kërko tituj"><button class="btn" id="clearQ" type="button">Pastro</button><button class="btn" id="darkBtn" type="button">🌙 Modaliteti i natës</button></div>
-
-<div class="filters" id="topicFilters">
-<button type="button" class="on" data-topic="all">Të gjitha temat</button>
-<button type="button" data-topic="politikë">Politikë</button>
-<button type="button" data-topic="kronikë">Kronikë</button>
-<button type="button" data-topic="ekonomi">Ekonomi</button>
-<button type="button" data-topic="sport">Sport</button>
-<button type="button" data-topic="botë">Botë</button>
-<button type="button" data-topic="showbiz">Showbiz</button>
-<button type="button" data-topic="fav">⭐ Të preferuarat e mia</button>
+<div id="loader" aria-hidden="true">
+  <div class="ld-word">Shqip<b>LIVE</b></div>
+  <div class="ld-bar"><i></i></div>
+  <div class="ld-sub">Po mblidhen lajmet</div>
 </div>
 
-<section aria-label="Live TV">
-<h2>📺 Live TV — kanale lajmesh</h2>
-<div class="stories" id="stories"></div>
-<div class="stage"><video id="player" controls autoplay muted playsinline></video><iframe id="framePlayer" title="Report TV live" style="display:none;width:100%;aspect-ratio:16/9;border:0;background:#000" allow="autoplay; fullscreen" allowfullscreen></iframe>
-<div class="bar"><div><span class="live">● LIVE</span> <span id="chName">News 24</span></div><div style="display:flex;gap:8px"><button class="btn" id="prevBtn" type="button">◀ Para</button><button class="btn primary" id="nextBtn" type="button">Tjetri ▶</button></div></div></div>
-<p id="status">Po lidhet me News 24… Zëri nis i heshtur — hiq mute për zë.</p>
-<div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="retryBtn" type="button">Riprovo live</button><button class="btn" id="miniBtn" type="button">📌 Mbaje live sipër</button><a class="btn" href="https://www.balkanweb.com/news24-live/" target="_blank" rel="noopener">Hap live zyrtar News24 ↗</a><a class="btn" href="https://report-tv.al/report_live" target="_blank" rel="noopener">Hap live zyrtar Report TV ↗</a></div>
-<p class="muted">Kanale live të verifikuara 29.10.2026 me playlist të freskët: News24, A2 CNN, Ora News, Syri TV, CNA. Report TV: tani luan BRENDA player-it, përmes player-it zyrtar të vet faqes (deb20stream) — adresa e stream-it merret vetë nga player-i zyrtar me token 30-minutësh, ndaj nuk ka nevojë për link statik. Alpo TV dhe Panorama TV nuk janë futur — verifikimi i tyre dështoi / mbeti i pakonfirmuar.</p>
+<header class="top">
+  <div class="wrap">
+    <a class="logo" href="#top" aria-label="Shqip Live — kreu"><span>Shqip</span><b>LIVE</b></a>
+    <nav class="nav" aria-label="Seksionet">
+      <a href="#live">Live TV</a>
+      <a href="#minuta">Në 1 minutë</a>
+      <a href="#dita">Lajmi i ditës</a>
+      <a href="#feed">Të fundit</a>
+      <a href="#burimet">Burimet</a>
+    </nav>
+    <div class="tools">
+      <button class="ib" id="searchBtn" type="button" aria-label="Kërko në tituj"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg></button>
+      <button class="ib" id="savedBtn" type="button" aria-label="Titujt e ruajtur" style="position:relative"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg><span class="cnt" id="savedCnt">0</span></button>
+      <button class="ib" id="themeBtn" type="button" aria-label="Ndrysho modalitetin dritë / natë"><svg id="themeIco" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"></svg></button>
+    </div>
+  </div>
+  <div class="strip"><div class="wrap"><span id="today">Tiranë</span><span class="r">18 burime zyrtare · 6 kanale live · RSS live çdo 5 min</span></div></div>
+</header>
+
+<div class="ticker" role="region" aria-label="Titujt e fundit">
+  <div class="tk-lbl"><span class="dot pulse"></span><span>TANI</span></div>
+  <div class="tk-view"><div class="tk-track" id="ticker"></div></div>
+</div>
+
+<a class="newbar" id="newBar" href="#feed" hidden><span class="wrap"><span class="dot pulse"></span><span id="newTxt"></span><span class="go">SHIKO →</span></span></a>
+
+<main id="top">
+<section class="hero">
+  <div class="wrap">
+    <h1 class="reveal"><span>Të gjitha lajmet.</span><span class="it">Një ekran.</span></h1>
+    <div class="hero-side reveal">
+      <p>18 faqe zyrtare shqiptare dhe 6 kanale lajmesh live, të mbledhura në një vend. Çdo titull hapet te burimi i vet — ne nuk kopjojmë artikuj.</p>
+      <div class="hero-cta">
+        <a class="pill solid" href="#live"><span class="dot"></span>Shiko live</a>
+        <a class="pill" href="#minuta">Lajmet në 1 minutë</a>
+      </div>
+      <div class="kpis"><div class="kpi"><b>18</b><span>Burime</span></div><div class="kpi"><b>6</b><span>Kanale live</span></div><div class="kpi"><b id="kpiTitles">—</b><span>Tituj sot</span></div></div>
+    </div>
+  </div>
 </section>
 
-
-<section aria-label="Një lajm, shumë burime">
-<h2>🔎 Lajmi i ditës — një lajm, shumë burime</h2>
-<p class="muted">I njëjti lajm sot, 29 tetor 2026 — seanca plenare në kaos — si e titullojnë burimet e ndryshme. Klikimi hap faqen zyrtare të burimit.</p>
-<div class="storybox"><ul id="storyList"></ul></div>
+<section class="sec" id="live" aria-labelledby="liveH">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="t"><span class="eyebrow">01 — Live TV</span><h2 class="h2" id="liveH">Në transmetim. <span class="it">Tani.</span></h2></div>
+      <p class="lead">Zëri nis i heshtur — prek “Hiq mute” për zë. Kalo nga një kanal te tjetri pa dalë nga faqja.</p>
+    </div>
+    <div class="live-grid">
+      <div class="live-main">
+        <div class="slot" id="slot">
+          <div class="slot-note">Live po luan në mini-player</div>
+          <div class="stage" id="stage">
+            <div class="mini-head"><span id="miniName">News 24</span><button class="ib" id="miniClose" type="button" aria-label="Mbyll mini-player"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+            <div class="vbox">
+              <video id="player" controls autoplay muted playsinline></video>
+              <iframe id="framePlayer" title="Report TV live" style="display:none" allow="autoplay; fullscreen" allowfullscreen></iframe>
+              <div class="cover" id="cover"><small>Po lidhet</small><strong id="coverName">News 24</strong><div class="ld-bar"><i></i></div></div>
+              <div class="cover-top" id="coverTop"><span class="livetag"><span class="dot pulse"></span>LIVE</span><span id="chCode">CH 01 / 06</span></div>
+            </div>
+          </div>
+        </div>
+        <div class="ctrl">
+          <button class="pill sm" id="muteBtn" type="button"><svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M17 9l4 6M21 9l-4 6"/></svg><span>Hiq mute</span></button>
+          <button class="ib sm" id="prevBtn" type="button" aria-label="Kanali para"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M15 5l-7 7 7 7"/></svg></button>
+          <button class="ib sm" id="nextBtn" type="button" aria-label="Kanali tjetër"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg></button>
+          <button class="pill sm" id="regjiaBtn" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><rect x="3" y="4" width="8" height="7" rx="1"/><rect x="13" y="4" width="8" height="7" rx="1"/><rect x="3" y="13" width="8" height="7" rx="1"/><rect x="13" y="13" width="8" height="7" rx="1"/></svg>Regjia 2×2</button>
+          <span class="sp"></span>
+          <button class="pill sm" id="retryBtn" type="button">Riprovo</button>
+          <button class="pill sm" id="miniBtn" type="button">Mbaje live sipër</button>
+          <a class="pill sm" id="officialLink" href="https://www.balkanweb.com/news24-live/" target="_blank" rel="noopener">Live zyrtar ↗</a>
+        </div>
+        <p class="status" id="status" aria-live="polite">Po lidhet me News 24…</p>
+      </div>
+      <div class="rail" role="group" aria-label="Kanalet live">
+        <div class="rail-h"><span class="eyebrow">Kanalet</span><span class="eyebrow">Të verifikuara</span></div>
+        <div id="channels"></div>
+      </div>
+    </div>
+    <p class="fine" style="margin-top:22px">Kanale të verifikuara më 29.10.2026: News 24, A2 CNN, Ora News, Syri TV, CNA. Report TV luan brenda faqes përmes player-it zyrtar të vet. Alpo TV dhe Panorama TV nuk janë përfshirë — verifikimi i tyre mbeti i pakonfirmuar. Shkurtore: 1–6 kanalet · M zëri · G Regjia · / kërko.</p>
+  </div>
 </section>
 
-<section aria-label="Përmbledhja e ditës">
-<h2>⚡ Përmbledhja e ditës — në 1 minutë</h2>
-<p class="muted">5 lajmet kryesore të sotme, 29 tetor 2026, në një ekran. Vetëm tituj + linke te burimet zyrtare, pa tekst artikujsh të kopjuar.</p>
-<div class="sumgrid" id="sumGrid"></div>
+<section class="sec minute" id="minuta" aria-labelledby="minH">
+  <div class="wrap">
+    <div class="side reveal">
+      <span class="eyebrow">02 — Në 1 minutë</span>
+      <h2 class="h2" id="minH" style="font-size:clamp(40px,4.6vw,66px)">Pesë lajmet e ditës. <span class="it">Pa scroll të pafund.</span></h2>
+      <p class="lead" id="sumLead">Përmbledhja e 29 tetorit 2026 — vetëm fakte të shkurtra dhe lidhje te burimet zyrtare.</p>
+      <div class="hero-cta">
+        <button class="pill sm" id="coverBtn" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><rect x="6.5" y="2" width="11" height="20" rx="2.5"/><path d="M10 6h4"/></svg><span>Kopertina për Story</span></button>
+        <button class="pill sm" id="speakBtn" type="button" aria-pressed="false"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16.5 8.5a5 5 0 0 1 0 7M19 6a8.5 8.5 0 0 1 0 12"/></svg><span>Dëgjo në 1 minutë</span></button>
+      </div>
+    </div>
+    <ol class="mlist reveal" id="sumList"></ol>
+  </div>
 </section>
 
-<section aria-label="Faqet e lajmeve">
-<h2>🗞️ Të gjitha faqet, në një vend</h2>
-<p class="muted">18 faqe zyrtare, të verifikuara që hapen. Prek ⭐ për ta bërë të preferuar — herën tjetër shfaqet e para te filtri “Të preferuarat e mia”. Teksti i plotë lexohet gjithmonë te burimi, jo këtu.</p>
-<div class="sources" id="sources"></div>
+<section class="sec" id="dita" aria-labelledby="ditaH">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="t"><span class="eyebrow">03 — Lajmi i ditës</span><h2 class="h2" id="ditaH">Një lajm. <span class="it" id="voiceCount">Nëntë zëra.</span></h2></div>
+      <p class="lead" id="ditaLead">Seanca plenare në kaos, 29 tetor 2026. Shiko si e titullon secili burim, krah për krah — klikimi hap faqen zyrtare.</p>
+    </div>
+    <div class="voices reveal" id="voices"></div>
+  </div>
 </section>
 
-<div id="breaking" style="display:none;background:#b9975b;color:#121212;border:2px solid #121212;padding:12px 14px;margin:12px 0;font-weight:700;line-height:1.4"><span>🚨 LAJM I FUNDIT: </span><a id="breakingLink" href="#" target="_blank" rel="noopener" style="color:#121212"></a> <span id="breakingSrc" style="font-weight:400"></span> <button id="breakingClose" type="button" style="float:right;border:1px solid #121212;background:transparent;padding:2px 8px;cursor:pointer">✕</button></div>
-<section aria-label="Të fundit nga të gjitha">
-<h2>🕐 Të fundit nga të gjitha</h2>
-<p class="muted" id="latestStatus">Feed-i kronologjik po mblidhet nga 6 burimet me RSS live…</p>
-<div class="storybox"><ul id="latestList" style="margin:0;padding-left:18px"></ul></div>
+<section class="sec" id="faqjaime" aria-labelledby="mineH" hidden>
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="t"><span class="eyebrow">Faqja ime</span><h2 class="h2" id="mineH">Burimet e tua. <span class="it">Të parat.</span></h2></div>
+      <p class="lead">Burimet që ke shënuar si të preferuara, me titujt e tyre më të fundit.</p>
+    </div>
+    <div class="groups" id="myPage"></div>
+  </div>
 </section>
 
-<section aria-label="Pulsi i ditës">
-<h2>📊 Pulsi i ditës</h2>
-<p class="muted" id="pulseText">Po llogaritet nga titujt e sotëm…</p>
-<ul id="pulseList" style="margin:0;padding-left:18px"></ul>
+<section class="band" aria-label="Pulsi i ditës">
+  <div class="wrap" id="pulse">
+    <div class="stat"><span class="eyebrow">Pulsi i ditës</span><b>—</b><span>Po llogaritet nga titujt e sotëm…</span></div>
+  </div>
 </section>
 
-<section aria-label="Titujt e sotëm">
-<h2>📰 Titujt e sotëm, sipas burimit</h2>
-<p class="muted">Tituj të marrë sot, 29 tetor 2026, nga faqet kryesore të burimeve. Klikimi hap faqen zyrtare të burimit — aty gjen artikullin e plotë. Nuk kopjojmë tekst artikujsh dhe nuk sajojmë linke artikujsh.</p>
-<p class="muted" id="liveStatus">Tituj live po provohen për 6 burimet me RSS…</p><p><button class="btn" id="refreshLiveBtn" type="button">↻ Rifresko titujt live</button></p>
-<div class="savedbox" id="savedBox"><b>⭐ Titujt e mi të ruajtur</b><p class="muted" id="savedEmpty" style="margin:6px 0 0">Ende bosh — prek “☆ Ruaj” te një titull më poshtë dhe do të shfaqet këtu, edhe herën tjetër që hap faqen.</p><ul id="savedList"></ul></div>
-<div class="headlines" id="headlines"></div>
-<p class="muted" id="noResults" style="display:none">Asnjë titull nuk përputhet me kërkimin tënd sot. Provo një fjalë tjetër, ose pastro kërkimin.</p>
+<section class="sec" id="feed" aria-labelledby="feedH">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="t"><span class="eyebrow">04 — Të fundit</span><h2 class="h2" id="feedH">Minutë pas <span class="it">minute.</span></h2></div>
+      <div style="display:flex;flex-direction:column;gap:14px;align-items:flex-start">
+        <p class="lead" id="latestStatus">Feed-i kronologjik po mblidhet nga 6 burimet me RSS live…</p>
+        <button class="pill sm" id="refreshLiveBtn" type="button"><svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 12a8 8 0 1 1-2.3-5.6"/><path d="M20 4v5h-5"/></svg>Rifresko titujt live</button>
+      </div>
+    </div>
+    <div class="latest" id="latestList"></div>
+
+    <div class="sub-h reveal" id="bysource">
+      <h3>Titujt e sotëm, <span class="it">sipas burimit.</span></h3>
+      <span class="eyebrow" id="liveStatus">Tituj live po provohen…</span>
+    </div>
+    <div class="toolbar">
+      <label class="search" for="q"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-3.5-3.5"/></svg><span class="sr">Kërko te titujt e sotëm</span><input id="q" type="search" placeholder="Kërko… p.sh. Kuvend, SPAK, buxhet" autocomplete="off"><button class="ib sm" id="clearQ" type="button" aria-label="Pastro kërkimin" style="border:0"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></label>
+      <div class="chips" id="topicsA" role="group" aria-label="Temat"></div>
+    </div>
+    <div class="groups" id="headlines"></div>
+    <div class="more" id="hlMoreWrap"><button class="pill" id="hlMore" type="button"></button></div>
+    <p class="empty" id="noResults" hidden>Asnjë titull nuk përputhet sot. Provo një fjalë tjetër ose pastro kërkimin.</p>
+  </div>
 </section>
 
-<footer>Created by <a href="https://t.me/ErionNezhaBot?start=brief" target="_blank" rel="noopener">Mr.Erionxx</a> — © 2026 · <a href="privacy.html">Privacy Policy</a></footer>
+<section class="sec" id="burimet" aria-labelledby="srcH">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="t"><span class="eyebrow">05 — Burimet</span><h2 class="h2" id="srcH">18 faqe zyrtare. <span class="it">Një indeks.</span></h2></div>
+      <p class="lead">Të verifikuara që hapen. Shëno të preferuarat — dalin të parat te “Faqja ime”. Teksti i plotë lexohet gjithmonë te burimi.</p>
+    </div>
+    <div class="chips" id="topicsB" role="group" aria-label="Temat e burimeve" style="margin-bottom:24px"></div>
+    <div class="srcgrid" id="sources"></div>
+    <div class="more" id="srcMoreWrap"><button class="pill" id="srcMore" type="button"></button></div>
+  </div>
+</section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <div class="bigword" aria-hidden="true">Shqip <i>Live</i></div>
+    <div class="foot-row">
+      <span>Titujt hapen gjithmonë te burimi zyrtar. Nuk kopjojmë tekst artikujsh dhe nuk sajojmë linke.</span>
+      <nav aria-label="Fundi i faqes"><a href="privacy.html">Privacy Policy</a><span class="credit">Created by <a href="https://t.me/ErionNezhaBot?start=brief" target="_blank" rel="noopener">Mr.Erionxx</a> · © 2026</span></nav>
+    </div>
+  </div>
+</footer>
+
+<div class="regjia" id="regjia" role="dialog" aria-modal="true" aria-labelledby="rgH" aria-hidden="true">
+  <div class="rg-h">
+    <div style="display:flex;align-items:baseline;gap:8px 18px;flex-wrap:wrap"><h2 id="rgH">Regjia</h2><span class="eyebrow" style="color:#A19D96">4 kanale njëkohësisht · prek njërin për zë</span></div>
+    <button class="ib" id="rgClose" type="button" aria-label="Mbyll Regjinë"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
+  </div>
+  <div class="rg-grid" id="rgGrid"></div>
+</div>
+
+<div class="scrim" id="scrim"></div>
+<aside class="drawer" id="drawer" aria-labelledby="drH" aria-hidden="true">
+  <div class="dr-h"><h2 id="drH">Të ruajturat</h2><button class="ib" id="drClose" type="button" aria-label="Mbyll"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button></div>
+  <div class="dr-b"><ul id="savedList" style="margin:0;padding:0;list-style:none"></ul><p class="empty" id="savedEmpty" style="border:0">Ende bosh — prek ikonën e ruajtjes te një titull dhe ai shfaqet këtu, edhe herën tjetër që hap faqen.</p></div>
+</aside>
+
+<div class="toast" id="breaking" role="status" aria-live="polite">
+  <div class="tb"><span class="livetag" style="align-self:flex-start"><span class="dot pulse"></span>LAJM I FUNDIT</span><a id="breakingLink" href="#" target="_blank" rel="noopener"></a><small id="breakingSrc"></small></div>
+  <button class="ib sm" id="breakingClose" type="button" aria-label="Mbyll njoftimin"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg></button>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/hls.js@1.5.13/dist/hls.min.js"></script>
 <script>
+/* ---------- të dhënat ---------- */
 const channels=[
-{id:"news24",name:"News 24",short:"N24",src:"https://tv.balkanweb.com/news24/livestream/playlist.m3u8"},
-{id:"a2",name:"A2 CNN Albania",short:"A2",src:"https://tv.a2news.com/live/smil:a2cnnweb.stream.smil/playlist.m3u8"},
-{id:"ora",name:"Ora News",short:"ORA",src:"https://live1.mediadesk.al/oranews.m3u8"},
-{id:"syri",name:"Syri TV",short:"SYRI",src:"https://stream.syritv.al/live/syritv/playlist.m3u8"},
-{id:"cna",name:"CNA",short:"CNA",src:"https://live1.mediadesk.al/cnatvlive.m3u8"},
-{id:"report",name:"Report TV",short:"RTV",iframe:"https://deb20stream.duckdns.org/playerhls10.html"}
+{id:"news24",name:"News 24",note:"Lajme · 24/7",src:"https://tv.balkanweb.com/news24/livestream/playlist.m3u8",official:"https://www.balkanweb.com/news24-live/"},
+{id:"a2",name:"A2 CNN",note:"Lajme · 24/7",src:"https://tv.a2news.com/live/smil:a2cnnweb.stream.smil/playlist.m3u8",official:"https://a2news.com"},
+{id:"ora",name:"Ora News",note:"Lajme · 24/7",src:"https://live1.mediadesk.al/oranews.m3u8",official:"https://oranews.tv"},
+{id:"syri",name:"Syri TV",note:"Lajme · 24/7",src:"https://stream.syritv.al/live/syritv/playlist.m3u8",official:"https://www.syri.net"},
+{id:"cna",name:"CNA",note:"Lajme · 24/7",src:"https://live1.mediadesk.al/cnatvlive.m3u8",official:"https://live1.mediadesk.al/cnatvlive.m3u8"},
+{id:"report",name:"Report TV",note:"Përmes player-it zyrtar",iframe:"https://deb20stream.duckdns.org/playerhls10.html",official:"https://report-tv.al/report_live"}
 ];
 const sources=[
 {name:"News24",url:"https://www.news24.al",type:"TV + Portal",topics:["politikë","kronikë","ekonomi","botë"],desc:"Televizioni informativ — lajmet e fundit, politikë, kronikë dhe drejtësi."},
@@ -174,7 +520,7 @@ const sources=[
 {name:"A2 CNN",url:"https://a2news.com",type:"TV + Portal",topics:["politikë","botë","ekonomi"],desc:"Zhvillimet më të rëndësishme dhe lajmet e fundit, me emisione si Off the Record dhe Newsroom."},
 {name:"Euronews Albania",url:"https://euronews.al",type:"TV + Portal",topics:["botë","politikë","ekonomi"],desc:"Lajme të fundit nga Shqipëria dhe bota, me këndvështrim europian."},
 {name:"Ora News",url:"https://oranews.tv",type:"TV + Portal",topics:["politikë","kronikë","showbiz"],desc:"Lajme live, politikë, kronikë dhe emisione — përfshirë Ora News Speciale."},
-{name:"Shqiptarja",url:"https://shqiptarja.com",type:"Portal + Report TV",topics:["politikë","kronikë","ekonomi","botë"],desc:"Media më e besueshme — portali i Report TV: politikë, kronikë, ekonomi, sociale dhe sport."},
+{name:"Shqiptarja",url:"https://shqiptarja.com",type:"Portal + Report TV",topics:["politikë","kronikë","ekonomi","botë"],desc:"Portali i Report TV: politikë, kronikë, ekonomi, sociale dhe sport."},
 {name:"Report TV",url:"https://report-tv.al",type:"TV + Portal",topics:["politikë","ekonomi","showbiz"],desc:"Televizion informativ 24 orë — lajme minutë pas minute, ekonomi dhe VIP."},
 {name:"Lapsi",url:"https://lapsi.al",type:"Portal / Analizë",topics:["politikë","kronikë","sport"],desc:"Platformë online që nga 2014, e fokusuar te analiza politike, opinione dhe investigime."},
 {name:"Gazeta Shqiptare",url:"https://gazetashqiptare.al",type:"Gazetë + Portal",topics:["politikë","kronikë","ekonomi"],desc:"Gazeta Shqiptare Online — aktualitet, politikë, dossier dhe shtypi i ditës."},
@@ -182,8 +528,8 @@ const sources=[
 {name:"JavaNews",url:"https://javanews.al",type:"Portal",topics:["politikë","kronikë","ekonomi","botë"],desc:"Portal lajmesh me politikë, kronikë, ekonomi, botë, sport dhe opinione."},
 {name:"VoxNews",url:"https://voxnews.al",type:"Portal / Investigim",topics:["politikë","kronikë","ekonomi"],desc:"VOX News Albania — çfarë fshihet pas lajmit? Fokus dhe investigime."},
 {name:"Telegrafi",url:"https://telegrafi.com",type:"Portal (Kosovë)",topics:["politikë","ekonomi","sport","botë"],desc:"Portali më i madh me lajme në shqip — Kosovë, Shqipëri, rajon, botë, ekonomi dhe sport."},
-{name:"TV Klan",url:"https://tvklan.al",type:"TV + Portal",topics:["politikë","kronikë","sport","showbiz","botë"],desc:"Televizioni Kombëtar më i Madh në Territoret Shqipfolëse — politikë, aktualitet, kronikë, sport dhe showbiz, me Klan News."},
-{name:"JOQ Albania",url:"https://joq-albania.com/",type:"Portal",topics:["politikë","kronikë","ekonomi"],desc:"JOQ Albania — lajme nga qytetarët dhe aktualitet: politikë, kronikë dhe ekonomi."}
+{name:"TV Klan",url:"https://tvklan.al",type:"TV + Portal",topics:["politikë","kronikë","sport","showbiz","botë"],desc:"Politikë, aktualitet, kronikë, sport dhe showbiz, me Klan News."},
+{name:"JOQ Albania",url:"https://joq-albania.com/",type:"Portal",topics:["politikë","kronikë","ekonomi"],desc:"Lajme nga qytetarët dhe aktualitet: politikë, kronikë dhe ekonomi."}
 ];
 const headlines=[
 {src:"News24",items:["Protesta kundër qeverisë vijon edhe sot në Tiranë, në ditën e 95-të","Kontrollet e SPAK te Ron Yeffet, Arjeta Puca, Ardi Veliu dhe Ministria e Mbrojtjes","Drafti për Kodin e Procedurës Penale pritet me shqetësim nga gjyqtarët dhe prokurorët"]},
@@ -202,49 +548,6 @@ const headlines=[
 {src:"TV Klan",items:["Mes kaosit e tymit mbyllet seanca plenare| Opozita “zaptoi” foltoren! Rama e Balluku largohen pas votimit","Kaosi në Parlament, Etika përjashton me 60 ditë gjashtë deputetë të PD-së","Berisha njofton protestë kombëtare të shtunën: PD në mbështetje të studentëve"]},
 {src:"JOQ Albania",items:["APARTAMENTE, TROJE, E MILIONA: ZBARDHEN PASURITË E ANËTARËVE TË KUSHTETUESES","PORTALI QË LUFTONTE JOQ-NË PËR LLOGARI TË VELIAJT ARKËTOI 1 MILION EURO NË VITIN 2024","PAS 1 JANARIT DO E HANI SA KRAHU: RRITEN TAKSAT DHE TATIMET"]}
 ];
-const video=document.getElementById("player"),nameEl=document.getElementById("chName"),statusEl=document.getElementById("status"),storiesEl=document.getElementById("stories");
-let hls=null,idx=0,topic="all";
-function favs(){try{return JSON.parse(localStorage.getItem("lajmet_fav")||"[]")}catch(e){return[]}}
-function renderStories(){storiesEl.innerHTML="";channels.forEach(function(c,i){const b=document.createElement("button");b.className="story"+(i===idx?" on":"");b.dataset.id=c.id;b.textContent=c.name;b.onclick=function(){play(i)};storiesEl.appendChild(b)})}
-function play(i){idx=(i+channels.length)%channels.length;const ch=channels[idx];nameEl.textContent=ch.name;statusEl.textContent="Po lidhet me "+ch.name+"…";
-const fp=document.getElementById("framePlayer");
-if(ch.iframe){if(hls){try{hls.destroy()}catch(e){} hls=null} video.pause();video.removeAttribute("src");video.load();video.style.display="none";fp.style.display="block";if(fp.getAttribute("src")!==ch.iframe)fp.setAttribute("src",ch.iframe);statusEl.textContent="Duke luajtur: "+ch.name+" • LIVE (përmes player-it zyrtar)";renderStories();return}
-fp.style.display="none";fp.removeAttribute("src");video.style.display="block";
-if(hls){try{hls.destroy()}catch(e){} hls=null}
-if(window.Hls&&Hls.isSupported()){hls=new Hls({maxBufferLength:30});hls.loadSource(ch.src);hls.attachMedia(video);hls.on(Hls.Events.MANIFEST_PARSED,function(){video.play().catch(function(){});statusEl.textContent="Duke luajtur: "+ch.name+" • LIVE"});hls.on(Hls.Events.ERROR,function(e,d){if(d.fatal){statusEl.textContent="Stream-i i "+ch.name+" nuk u hap në këtë browser. Provo Riprovo."}})}
-else if(video.canPlayType("application/vnd.apple.mpegurl")){video.src=ch.src;video.play().catch(function(){});statusEl.textContent="Duke luajtur: "+ch.name+" • LIVE (native HLS)"}
-else{statusEl.textContent="Ky browser nuk mbështet HLS."}
-renderStories()}
-function renderSources(){const f=favs(),el=document.getElementById("sources");el.innerHTML="";sources.filter(function(s){if(topic==="fav")return f.includes(s.name);if(topic==="all")return true;return s.topics.includes(topic)}).forEach(function(s){const d=document.createElement("div");d.className="src";d.innerHTML="<h3>"+s.name+"</h3><p>"+s.desc+"</p><div>"+s.topics.map(function(t){return "<span class='tag'>"+t+"</span>"}).join("")+"</div><p><a class='btn primary' href='"+s.url+"' target='_blank' rel='noopener'>Hap faqen zyrtare ↗</a> <button class='btn favbtn' data-name='"+s.name+"'>"+(f.includes(s.name)?"★ E preferuar":"☆ Bëje të preferuar")+"</button> <span class='tag'>"+s.type+"</span></p>";el.appendChild(d)});
-document.querySelectorAll(".favbtn").forEach(function(b){b.onclick=function(){let f=favs();const n=b.dataset.name,i=f.indexOf(n);if(i>=0)f.splice(i,1);else f.push(n);try{localStorage.setItem("lajmet_fav",JSON.stringify(f))}catch(e){} renderSources();renderMyPage()}})}
-function renderHeadlines(){const q=(document.getElementById("q").value||"").toLowerCase(),el=document.getElementById("headlines");el.innerHTML="";let count=0;headlines.forEach(function(g){const src=sources.find(function(s){return s.name===g.src});const url=src?src.url:"#";let disp=[];if(liveTitles[g.src]){disp=liveTitles[g.src].map(function(it){return {title:it.title,url:it.link}})}else{disp=g.items.map(function(it){return {title:it,url:url}})}
-const items=disp.filter(function(it){return !q||it.title.toLowerCase().includes(q)});if(!items.length)return;count+=items.length;const d=document.createElement("div");d.className="hl";const sv=savedTitles();d.innerHTML="<h3>"+g.src+(liveTitles[g.src]?"<span class='livetag'>LIVE</span>":"")+"</h3><ul>"+items.map(function(it){const isSv=sv.some(function(x){return x.title===it.title});return "<li><a href='"+it.url+"' target='_blank' rel='noopener'>"+it.title+"</a><button class='savebtn"+(isSv?" on":"")+"' data-src='"+g.src+"' data-title='"+it.title.replace(/'/g,"&#39;")+"'>"+(isSv?"★ E ruajtur":"☆ Ruaj")+"</button> <button class='savebtn' data-card-src='"+g.src+"' data-card-title='"+it.title.replace(/'/g,"&#39;")+"'>🖼 Foto</button></li>"}).join("")+"</ul>";el.appendChild(d)});el.querySelectorAll(".savebtn[data-src]").forEach(function(b){b.onclick=function(){let f=savedTitles();const it={src:b.dataset.src,title:b.dataset.title};const i=f.findIndex(function(x){return x.title===it.title});if(i>=0)f.splice(i,1);else f.push(it);try{localStorage.setItem("lajmet_ruajtur",JSON.stringify(f))}catch(e){} renderSaved();renderHeadlines()}});document.getElementById("noResults").style.display=count?"none":"block";el.querySelectorAll("[data-card-title]").forEach(function(b){b.onclick=function(){shareCard(b.dataset.cardTitle,b.dataset.cardSrc)}})}
-const rssFeeds={"News24":"https://www.news24.al/feed/","Panorama":"https://panorama.com.al/feed/","Euronews Albania":"https://euronews.al/feed/","Gazeta Shqiptare":"https://gazetashqiptare.al/feed/","JavaNews":"https://javanews.al/feed/","Telegrafi":"https://telegrafi.com/rss"};
-let liveTitles={};
-let latestFeed=[];
-let knownTitles=new Set(), breakingBaseline=false;
-function showBreaking(src,title,link){const b=document.getElementById("breaking");document.getElementById("breakingLink").textContent=title;document.getElementById("breakingLink").href=link||"#";document.getElementById("breakingSrc").textContent="("+src+")";b.style.display="block"}
-document.getElementById("breakingClose").onclick=function(){document.getElementById("breaking").style.display="none"};
-function shareCard(title,src){const c=document.createElement("canvas");c.width=1200;c.height=630;const x=c.getContext("2d");x.fillStyle="#121212";x.fillRect(0,0,1200,630);x.strokeStyle="#b9975b";x.lineWidth=10;x.strokeRect(20,20,1160,590);x.fillStyle="#b9975b";x.font="700 34px Georgia,serif";x.fillText("TË GJITHA LAJMET",70,100);x.fillStyle="#f6f3ec";x.font="700 52px Georgia,serif";let words=title.split(" "),lines=[],line="";words.forEach(function(w){const t2=line?line+" "+w:w;if(x.measureText(t2).width>1020&&line){lines.push(line);line=w}else line=t2});lines.push(line);let y=190;lines.slice(0,5).forEach(function(l){x.fillText(l,70,y);y+=68});x.fillStyle="#b9975b";x.font="400 32px Georgia,serif";x.fillText("Burimi: "+src,70,540);c.toBlob(async function(blob){const file=new File([blob],"lajm.png",{type:"image/png"});try{if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:title});return}}catch(e){}const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="lajm.png";document.body.appendChild(a);a.click();a.remove()},"image/png")}
-function renderPulse(){let total=0,per={},words={};const stop=["dhe","nga","për","në","të","është","me","sot","pas","para","mbi","tek","si","kur","nuk","edhe","por","apo","një","janë","është","u","e","i","a","o","për","te","kjo","ky","këtë","atë","ai","ajo"];headlines.forEach(function(g){let disp=liveTitles[g.src]?liveTitles[g.src].map(function(it){return it.title}):g.items;per[g.src]=(per[g.src]||0)+disp.length;total+=disp.length;disp.forEach(function(ti){ti.toLowerCase().replace(/[^a-zçë\s]/g," ").split(/\s+/).forEach(function(w){if(w.length>3&&stop.indexOf(w)<0)words[w]=(words[w]||0)+1})})});const topSrc=Object.keys(per).sort(function(a,b){return per[b]-per[a]}).slice(0,3);const topWord=Object.keys(words).sort(function(a,b){return words[b]-words[a]})[0];document.getElementById("pulseText").textContent=total+" tituj gjithsej nga "+Object.keys(per).length+" burime sot.";document.getElementById("pulseList").innerHTML="<li><b>Burimi me më shumë tituj:</b> "+(topSrc[0]||"—")+" ("+(per[topSrc[0]]||0)+")</li><li><b>Top 3 burime:</b> "+topSrc.map(function(s){return s+" ("+per[s]+")"}).join(", ")+"</li>"+(topWord?"<li><b>Fjala që dominon sot:</b> \""+topWord+"\" ("+words[topWord]+" herë)</li>":"")}
-function renderLatest(){const el=document.getElementById("latestList"),st=document.getElementById("latestStatus");if(!latestFeed.length){el.innerHTML="<li class='muted'>Ende pa feed live — kur faqja hapet me rrjet, këtu dalin titujt më të freskët nga të gjitha burimet me RSS, sipas orës.</li>";return}
-const sorted=latestFeed.slice().sort(function(a,b){return new Date(b.pub)-new Date(a.pub)}).slice(0,10);el.innerHTML=sorted.map(function(it){let tm="";try{tm=new Date(it.pub).toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Tirane"})}catch(e){}return "<li style='margin:9px 0;line-height:1.4'><b>"+it.src+(tm?" · "+tm:"")+"</b>: <a href='"+it.link+"' target='_blank' rel='noopener'>"+it.title+"</a></li>"}).join("");st.textContent="10 titujt më të freskët nga 6 burimet me RSS live, sipas orës (Tiranë).";}
-async function loadLiveHeadlines(){const names=Object.keys(rssFeeds);let ok=0,fresh=[];for(const name of names){try{const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(rssFeeds[name]));if(!r.ok)continue;const txt=await r.text();const xml=new DOMParser().parseFromString(txt,"text/xml");const items=Array.from(xml.querySelectorAll("item")).slice(0,5).map(function(it){return {title:(it.querySelector("title")||{}).textContent||"",link:(it.querySelector("link")||{}).textContent||"",pub:(it.querySelector("pubDate")||{}).textContent||""}}).filter(function(it){return it.title});if(items.length){items.forEach(function(it){const key=(name+"|"+it.title).toLowerCase();if(!latestFeed.some(function(x){return (x.src+"|"+x.title).toLowerCase()===key}))latestFeed.push({src:name,title:it.title,link:it.link,pub:it.pub});if(breakingBaseline&&!knownTitles.has(key))fresh.push({src:name,title:it.title,link:it.link,pub:it.pub});knownTitles.add(key)})}const topItems=items.slice(0,3);if(topItems.length){liveTitles[name]=topItems;ok++}}catch(e){}}
-document.getElementById("liveStatus").textContent="Tituj live: "+ok+" nga 6 burime me RSS u përditësuan tani ("+names.filter(function(n){return liveTitles[n]}).join(", ")+"). 12 burimet e tjera pa RSS mbajnë titujt e 29 tetorit 2026. Përmbledhja e ditës dhe \u201cNjë lajm, shumë burime\u201d mbeten të 29 tetorit.";
-if(ok){renderHeadlines();renderMyPage()}renderLatest();renderPulse();
-if(fresh.length){fresh.sort(function(a,b){return new Date(b.pub)-new Date(a.pub)});showBreaking(fresh[0].src,fresh[0].title,fresh[0].link)}
-breakingBaseline=true;
-if(!window._breakingTimer){window._breakingTimer=setInterval(loadLiveHeadlines,300000)}}
-document.querySelectorAll("#topicFilters button").forEach(function(b){b.onclick=function(){document.querySelectorAll("#topicFilters button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");topic=b.dataset.topic;renderSources()}});
-document.getElementById("q").addEventListener("input",renderHeadlines);
-document.getElementById("clearQ").onclick=function(){document.getElementById("q").value="";renderHeadlines()};
-document.getElementById("prevBtn").onclick=function(){play(idx-1)};
-document.getElementById("nextBtn").onclick=function(){play(idx+1)};
-document.getElementById("retryBtn").onclick=function(){play(idx)};
-document.getElementById("refreshLiveBtn").onclick=function(){document.getElementById("liveStatus").textContent="Po rifreskohen titujt live…";loadLiveHeadlines()};
-document.getElementById("miniBtn").onclick=function(){const st=document.querySelector(".stage");st.classList.toggle("mini");this.textContent=st.classList.contains("mini")?"✕ Mbyll mini-player":"📌 Mbaje live sipër"};
-setTimeout(function(){var l=document.getElementById("loader");if(l)l.classList.add("hide");setTimeout(function(){if(l)l.style.display="none"},700)},1400);
-
 const storyCoverage=[
 {src:"Top Channel",title:"Nis seanca plenare, PD bën zhurmë duke goditur tavolinat teksa flet Peleshi, bllokojnë dhe foltoren"},
 {src:"Syri",title:"Seanca parlamentare, opozita proteston me fotot e të dhunuarve në protestë, bllokon foltoren"},
@@ -257,24 +560,401 @@ const storyCoverage=[
 {src:"Gazeta Shqiptare",title:"Berisha akuza të forta Ballës në seancë: Ke porositur vrasjen e Ravik Gurrës"}
 ];
 const daySummary=[
-{n:"1",t:"Kaosi në Kuvend",d:"Seanca plenare u mbyll mes tymit, flakadanëve dhe bllokimit të foltores; deputetë të PD-së u përjashtuan.",links:["Top Channel","Syri","TV Klan"]},
-{n:"2",t:"Agasi transferohet në Fier",d:"Pas Veliajt, edhe Ergys Agasi u transferua nga paraburgimi i Bradasheshit drejt burgut të Fierit.",links:["Shqiptarja","Lapsi","VoxNews"]},
-{n:"3",t:"Protesta vazhdon",d:"Protesta kundër qeverisë vazhdon në Tiranë; Berisha njoftoi protestë kombëtare të shtunën në mbështetje të studentëve.",links:["News24","TV Klan","Report TV"]},
-{n:"4",t:"Buxheti 2027 mbi 10 mld euro",d:"Projektbuxheti u prezantua me rritje pagash për policinë nga 1 janari 2027 dhe më shumë për shëndetësinë e arsimin.",links:["Report TV","JavaNews","Shqiptarja"]},
-{n:"5",t:"Beqaj në GJKKO",d:"Ish-ministri i Shëndetësisë Ilir Beqaj u paraqit në GJKKO, i shoqëruar nga oficeri i policisë.",links:["Top Channel","Panorama"]}
+{t:"Kaosi në Kuvend",d:"Seanca plenare u mbyll mes tymit, flakadanëve dhe bllokimit të foltores; deputetë të PD-së u përjashtuan.",links:["Top Channel","Syri","TV Klan"]},
+{t:"Agasi transferohet në Fier",d:"Pas Veliajt, edhe Ergys Agasi u transferua nga paraburgimi i Bradasheshit drejt burgut të Fierit.",links:["Shqiptarja","Lapsi","VoxNews"]},
+{t:"Protesta vazhdon",d:"Protesta kundër qeverisë vazhdon në Tiranë; Berisha njoftoi protestë kombëtare të shtunën në mbështetje të studentëve.",links:["News24","TV Klan","Report TV"]},
+{t:"Buxheti 2027 mbi 10 mld euro",d:"Projektbuxheti u prezantua me rritje pagash për policinë nga 1 janari 2027 dhe më shumë për shëndetësinë e arsimin.",links:["Report TV","JavaNews","Shqiptarja"]},
+{t:"Beqaj në GJKKO",d:"Ish-ministri i Shëndetësisë Ilir Beqaj u paraqit në GJKKO, i shoqëruar nga oficeri i policisë.",links:["Top Channel","Panorama"]}
 ];
-function srcUrl(name){const s=sources.find(function(x){return x.name===name});return s?s.url:"#"}
-function renderMyPage(){const f=favs(),el=document.getElementById("myPage");if(!f.length){el.innerHTML="<p class='muted' style='margin:0'>Ende s\'ke zgjedhur të preferuara. Prek ⭐ te një faqe më poshtë dhe ajo do të dalë këtu, e para.</p>";return}
-let html="";f.forEach(function(name){const src=sources.find(function(s){return s.name===name});if(!src)return;const g=headlines.find(function(h){return h.src===name});let disp=[];if(liveTitles[name]){disp=liveTitles[name].map(function(it){return {title:it.title,url:it.link}})}else if(g){disp=g.items.map(function(it){return {title:it,url:src.url}})}
-html+="<h3 style='margin:14px 0 6px'>"+name+(liveTitles[name]?"<span class='livetag'>LIVE</span>":"")+"</h3><ul style='margin:0 0 8px;padding-left:18px'>"+disp.map(function(it){return "<li style='margin:7px 0;line-height:1.4'><a href='"+it.url+"' target='_blank' rel='noopener'>"+it.title+"</a></li>"}).join("")+"</ul><p style='margin:0 0 10px'><a class='btn' href='"+src.url+"' target='_blank' rel='noopener'>Hap "+name+" ↗</a></p>"});el.innerHTML=html}
-function renderStory(){document.getElementById("storyList").innerHTML=storyCoverage.map(function(c){return "<li><b>"+c.src+":</b> <a href='"+srcUrl(c.src)+"' target='_blank' rel='noopener'>"+c.title+"</a></li>"}).join("")}
-function renderSummary(){document.getElementById("sumGrid").innerHTML=daySummary.map(function(s){return "<div class='sumcard'><h3><b>"+s.n+".</b> "+s.t+"</h3><p>"+s.d+"</p><p>Burime: "+s.links.map(function(l){return "<a href='"+srcUrl(l)+"' target='_blank' rel='noopener'>"+l+" ↗</a>"}).join(" · ")+"</p></div>"}).join("")}
-function savedTitles(){try{return JSON.parse(localStorage.getItem("lajmet_ruajtur")||"[]")}catch(e){return[]}}
-function renderSaved(){const f=savedTitles(),ul=document.getElementById("savedList");document.getElementById("savedEmpty").style.display=f.length?"none":"block";ul.innerHTML=f.map(function(it,i){return "<li><a href='"+srcUrl(it.src)+"' target='_blank' rel='noopener'>"+it.title+"</a> <small>("+it.src+")</small> <button class='savebtn' data-del='"+i+"'>Hiq</button></li>"}).join("");ul.querySelectorAll("[data-del]").forEach(function(b){b.onclick=function(){let f=savedTitles();f.splice(parseInt(b.dataset.del,10),1);try{localStorage.setItem("lajmet_ruajtur",JSON.stringify(f))}catch(e){} renderSaved();renderHeadlines()}})}
-function applyDark(){const d=localStorage.getItem("lajmet_dark")==="1";document.body.classList.toggle("dark",d);const b=document.getElementById("darkBtn");if(b)b.textContent=d?"☀️ Modaliteti i ditës":"🌙 Modaliteti i natës"}
-document.getElementById("darkBtn").onclick=function(){const d=document.body.classList.toggle("dark");try{localStorage.setItem("lajmet_dark",d?"1":"0")}catch(e){} applyDark()};
-if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
-applyDark();renderLatest();renderPulse();renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();renderMyPage();play(0);loadLiveHeadlines();
+const rssFeeds={"News24":"https://www.news24.al/feed/","Panorama":"https://panorama.com.al/feed/","Euronews Albania":"https://euronews.al/feed/","Gazeta Shqiptare":"https://gazetashqiptare.al/feed/","JavaNews":"https://javanews.al/feed/","Telegrafi":"https://telegrafi.com/rss"};
+const topics=[["all","Të gjitha"],["politikë","Politikë"],["kronikë","Kronikë"],["ekonomi","Ekonomi"],["sport","Sport"],["botë","Botë"],["showbiz","Showbiz"],["fav","Të preferuarat"]];
+
+/* ---------- ndihmës ---------- */
+const $=s=>document.querySelector(s);
+const esc=s=>String(s==null?"":s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const safeUrl=u=>/^https?:\/\//i.test(u||"")?u:"#";
+const ICO={
+ save:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M6 3h12v18l-6-4-6 4z"/></svg>',
+ share:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="M3 16l5-5 4 4 3-3 6 6"/><circle cx="16" cy="9" r="1.5"/></svg>',
+ star:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linejoin="round" aria-hidden="true"><path d="M12 3.5l2.6 5.3 5.9.9-4.3 4.1 1 5.8L12 16.9l-5.2 2.7 1-5.8L3.5 9.7l5.9-.9z"/></svg>',
+ ext:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M7 17L17 7M9 7h8v8"/></svg>',
+ chev:'<svg class="chev" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M9 5l7 7-7 7"/></svg>',
+ x:'<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18"/></svg>',
+ moon:'<path d="M20 14.5A8 8 0 1 1 9.5 4a6.5 6.5 0 0 0 10.5 10.5z"/>',
+ sun:'<circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/>'
+};
+const reduceMotion=()=>window.matchMedia&&matchMedia("(prefers-reduced-motion: reduce)").matches;
+const vt=f=>{if(document.startViewTransition&&!reduceMotion())document.startViewTransition(f);else f()};
+function countUp(el,to,from){if(!el)return;from=from!=null?from:(parseInt(el.textContent,10)||0);if(reduceMotion()||from===to){el.textContent=to;return}const t0=performance.now(),d=1000;(function f(t){const p=Math.min(1,(t-t0)/d),e=1-Math.pow(1-p,3);el.textContent=Math.round(from+(to-from)*e);if(p<1)requestAnimationFrame(f)})(t0)}
+function shareBlob(blob,name,title){const file=new File([blob],name,{type:"image/png"});(async()=>{try{if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:title});return}}catch(e){if(e&&e.name==="AbortError")return}const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download=name;document.body.appendChild(a);a.click();a.remove()})()}
+function store(k,v){try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}}
+function load(k,d){try{const v=JSON.parse(localStorage.getItem(k));return v==null?d:v}catch(e){return d}}
+const favs=()=>load("lajmet_fav",[]);
+const savedTitles=()=>load("lajmet_ruajtur",[]);
+const srcUrl=n=>{const s=sources.find(x=>x.name===n);return s?s.url:"#"};
+let hlOpen=false,srcOpen=false,liveTitles={},latestFeed=[],knownTitles=new Set(),breakingBaseline=false,topic="all",idx=0,hls=null;
+
+function titlesFor(name){
+  if(liveTitles[name])return liveTitles[name].map(it=>({title:it.title,url:safeUrl(it.link)||srcUrl(name)}));
+  const g=headlines.find(h=>h.src===name);
+  return g?g.items.map(t=>({title:t,url:srcUrl(name)})):[];
+}
+function isSaved(t){return savedTitles().some(x=>x.title===t)}
+function hlItem(src,it){
+  const on=isSaved(it.title);
+  return '<li class="hl"><a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><span class="act">'+
+   '<button class="ib sm'+(on?' on':'')+'" type="button" data-save data-src="'+esc(src)+'" data-title="'+esc(it.title)+'" data-link="'+esc(it.url)+'" aria-pressed="'+on+'" aria-label="'+(on?'Hiq nga të ruajturat':'Ruaj titullin')+'">'+ICO.save+'</button>'+
+   '<button class="ib sm" type="button" data-share data-src="'+esc(src)+'" data-title="'+esc(it.title)+'" aria-label="Krijo foto për ndarje">'+ICO.share+'</button></span></li>';
+}
+
+/* ---------- data e sotme ---------- */
+const DAYS=["E diel","E hënë","E martë","E mërkurë","E enjte","E premte","E shtunë"],MONTHS=["Janar","Shkurt","Mars","Prill","Maj","Qershor","Korrik","Gusht","Shtator","Tetor","Nëntor","Dhjetor"];
+(function(){const d=new Date();$("#today").textContent=DAYS[d.getDay()]+" · "+d.getDate()+" "+MONTHS[d.getMonth()]+" "+d.getFullYear()+" · Tiranë"})();
+
+/* ---------- që kur ishe këtu ---------- */
+const LV="shqiplive_lastvisit",prevVisit=load(LV,null);
+function markVisit(){store(LV,Date.now())}
+document.addEventListener("visibilitychange",()=>{if(document.visibilityState==="hidden")markVisit()});
+window.addEventListener("pagehide",markVisit);
+if(!prevVisit)markVisit();
+const isNew=it=>!!prevVisit&&(Date.parse(it.pub)||0)>prevVisit;
+function fmtVisit(ts){const d=new Date(ts),n=new Date(),hm=d.toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit",hour12:false}),day=x=>new Date(x.getFullYear(),x.getMonth(),x.getDate()).getTime(),diff=Math.round((day(n)-day(d))/864e5);return diff===0?"sot në "+hm:diff===1?"dje në "+hm:d.getDate()+" "+MONTHS[d.getMonth()]+", "+hm}
+function renderNewBar(){const n=latestFeed.filter(isNew).length,b=$("#newBar");if(!n){b.hidden=true;return}b.hidden=false;$("#newTxt").innerHTML="<b>"+n+(n===1?" titull i ri":" tituj të rinj")+"</b> që kur ishe këtu "+esc(fmtVisit(prevVisit))}
+
+/* ---------- grupimi automatik i lajmeve ---------- */
+const STOP=new Set("dhe nga për në të është me sot pas para mbi tek si kur nuk edhe por apo një janë te kjo ky këtë atë ai ajo ata ato tyre tij saj ka kanë do deri lajmi fundit live video foto shumë sipas ishte kishte kemi keni cili cila çfarë kush ku sa pse mund duhet thotë tha flet reagon zbardhen detajet tani orë ditë vjen bëhet mes nëse kundër drejt gjatë sërish ndaj prej ende vetëm gjithë".split(" "));
+function tokens(t){const out=new Map();String(t).toLowerCase().replace(/[^a-zçë\s]/g," ").split(/\s+/).forEach(w=>{if(w.length<4||STOP.has(w))return;const st=w.slice(0,5);if(!out.has(st))out.set(st,w)});return out}
+let autoClusters=null;
+function computeClusters(){
+  const pool=latestFeed.map(it=>Object.assign({},it,{tk:tokens(it.title),t:Date.parse(it.pub)||0})),used=new Set(),clusters=[];
+  const build=seed=>{const mem=[seed],bySrc={};let score=0;
+    pool.forEach(o=>{if(used.has(o)||o===seed||o.src===seed.src)return;let sh=0;seed.tk.forEach((w,st)=>{if(o.tk.has(st))sh++});if(sh>=2&&(!bySrc[o.src]||bySrc[o.src].sh<sh))bySrc[o.src]={o,sh}});
+    Object.values(bySrc).forEach(x=>{mem.push(x.o);score+=x.sh});return{mem,score}};
+  while(clusters.length<5){
+    let best=null;
+    pool.forEach(seed=>{if(used.has(seed))return;const c=build(seed),k=c.mem.length*100+c.score*10+seed.t/1e13;if(!best||k>best.k)best={mem:c.mem,k,seed}});
+    if(!best)break;
+    best.mem.forEach(m=>used.add(m));
+    const cnt={};best.mem.forEach(m=>m.tk.forEach((w,st)=>{const c=cnt[st]||(cnt[st]={n:0,w:{}});c.n++;c.w[w]=(c.w[w]||0)+1}));
+    const topic=Object.keys(cnt).filter(st=>cnt[st].n>=2).sort((a,b)=>cnt[b].n-cnt[a].n).slice(0,3).map(st=>Object.keys(cnt[st].w).sort((a,b)=>cnt[st].w[b]-cnt[st].w[a])[0]);
+    clusters.push({seed:best.seed,mem:best.mem,topic});
+  }
+  autoClusters=clusters.length&&clusters[0].mem.length>=2?clusters:null;
+}
+const linkOf=m=>safeUrl(m.link)!=="#"?m.link:srcUrl(m.src);
+
+/* ---------- tema ---------- */
+function applyTheme(){
+  const light=document.documentElement.getAttribute("data-theme")==="light";
+  $("#themeIco").innerHTML=light?ICO.moon:ICO.sun;
+  $("#themeBtn").setAttribute("aria-label",light?"Kalo në modalitetin e natës":"Kalo në modalitetin e ditës");
+  document.querySelector('meta[name="theme-color"]').setAttribute("content",light?"#F5F2EB":"#0C0C0D");
+}
+$("#themeBtn").onclick=()=>{const light=document.documentElement.getAttribute("data-theme")!=="light";vt(()=>{document.documentElement.setAttribute("data-theme",light?"light":"dark");applyTheme()});try{localStorage.setItem("shqiplive_theme",light?"light":"dark")}catch(e){}};
+
+/* ---------- ticker ---------- */
+function renderTicker(){
+  let items=latestFeed.slice().sort((a,b)=>new Date(b.pub)-new Date(a.pub)).slice(0,12).map(i=>({src:i.src,title:i.title,url:safeUrl(i.link)}));
+  if(!items.length)items=headlines.map(g=>({src:g.src,title:g.items[0],url:srcUrl(g.src)}));
+  const html=items.map(i=>'<a class="tk-item" href="'+esc(i.url)+'" target="_blank" rel="noopener"><em>'+esc(i.src)+'</em><span>'+esc(i.title)+'</span></a>').join("");
+  $("#ticker").innerHTML=html+html.replace(/<a /g,'<a aria-hidden="true" tabindex="-1" ');
+}
+
+/* ---------- live tv ---------- */
+const video=$("#player"),frame=$("#framePlayer"),cover=$("#cover"),statusEl=$("#status");
+function renderChannels(){
+  $("#channels").innerHTML=channels.map((c,i)=>'<button class="ch'+(i===idx?' on':'')+'" type="button" data-ch="'+i+'"'+(i===idx?' aria-current="true"':'')+'><span class="n">0'+(i+1)+'</span><span class="nm"><b>'+esc(c.name)+'</b><span>'+esc(c.note)+'</span></span><span class="livetag">NË EKRAN</span>'+ICO.chev+'</button>').join("");
+}
+function setStatus(html){statusEl.innerHTML=html}
+function showCover(on,label){cover.classList.toggle("off",!on);if(label)cover.querySelector("small").textContent=label}
+function play(i){
+  idx=(i+channels.length)%channels.length;const ch=channels[idx];
+  vt(()=>{$("#coverName").textContent=ch.name;$("#miniName").textContent=ch.name;renderChannels()});
+  $("#chCode").textContent="CH 0"+(idx+1)+" / 0"+channels.length;
+  $("#officialLink").href=ch.official;
+  showCover(true,"Po lidhet");setStatus("Po lidhet me <b>"+esc(ch.name)+"</b>…");
+  renderChannels();
+  if(hls){try{hls.destroy()}catch(e){}hls=null}
+  if(ch.iframe){
+    video.pause();video.removeAttribute("src");video.load();video.style.display="none";
+    frame.style.display="block";
+    if(frame.getAttribute("src")!==ch.iframe){frame.onload=()=>showCover(false);frame.setAttribute("src",ch.iframe)}else showCover(false);
+    setTimeout(()=>showCover(false),2500);
+    setStatus("Duke luajtur <b>"+esc(ch.name)+"</b> · LIVE përmes player-it zyrtar");
+    $("#muteBtn").disabled=true;$("#muteBtn").style.opacity=".45";return;
+  }
+  $("#muteBtn").disabled=false;$("#muteBtn").style.opacity="";
+  frame.style.display="none";frame.removeAttribute("src");video.style.display="block";
+  if(window.Hls&&Hls.isSupported()){
+    hls=new Hls({maxBufferLength:30});hls.loadSource(ch.src);hls.attachMedia(video);
+    hls.on(Hls.Events.MANIFEST_PARSED,()=>{video.play().catch(()=>{})});
+    hls.on(Hls.Events.ERROR,(e,d)=>{if(d.fatal){showCover(true,"Nuk u hap");setStatus("Stream-i i <b>"+esc(ch.name)+"</b> nuk u hap në këtë browser. Provo “Riprovo” ose hap live-in zyrtar.")}});
+  }else if(video.canPlayType("application/vnd.apple.mpegurl")){video.src=ch.src;video.play().catch(()=>{})}
+  else{showCover(true,"Pa mbështetje");setStatus("Ky browser nuk mbështet transmetimin HLS.")}
+}
+video.addEventListener("playing",()=>{showCover(false);setStatus("Duke luajtur <b>"+esc(channels[idx].name)+"</b> · LIVE"+(video.muted?" · pa zë":""))});
+video.addEventListener("waiting",()=>{if(video.currentTime<1)showCover(true,"Po ngarkohet")});
+function syncMute(){$("#muteBtn span").textContent=video.muted?"Hiq mute":"Vendos mute"}
+video.addEventListener("volumechange",syncMute);
+$("#muteBtn").onclick=()=>{video.muted=!video.muted;if(!video.muted)video.play().catch(()=>{});syncMute()};
+$("#channels").addEventListener("click",e=>{const b=e.target.closest("[data-ch]");if(b)play(+b.dataset.ch)});
+$("#prevBtn").onclick=()=>play(idx-1);
+$("#nextBtn").onclick=()=>play(idx+1);
+$("#retryBtn").onclick=()=>{frame.removeAttribute("src");play(idx)};
+function toggleMini(force){const st=$("#stage"),on=force!=null?force:!st.classList.contains("mini");st.classList.toggle("mini",on);$("#miniBtn").textContent=on?"Mbyll mini-player":"Mbaje live sipër"}
+$("#miniBtn").onclick=()=>toggleMini();
+$("#miniClose").onclick=()=>toggleMini(false);
+
+/* ---------- në 1 minutë + lajmi i ditës ---------- */
+function summaryItems(){
+  if(autoClusters)return autoClusters.map(c=>({title:c.seed.title,src:c.seed.src,
+    desc:c.mem.length>1?("Si e titullon "+c.mem[1].src+": “"+c.mem[1].title+"”"):("Për momentin vetëm te "+c.seed.src+"."),
+    meta:c.mem.length+(c.mem.length===1?" burim":" burime")+" e mbulojnë",
+    links:c.mem.map(m=>({name:m.src,url:linkOf(m)}))}));
+  return daySummary.map(s=>({title:s.t,src:s.links[0],desc:s.d,meta:"29 tetor 2026",links:s.links.map(l=>({name:l,url:srcUrl(l)}))}));
+}
+function renderSummary(){
+  const items=summaryItems();
+  $("#sumLead").textContent=autoClusters?"Ndërtohet vetë nga titujt live — renditur sipas sa burime e mbulojnë lajmin. Përditësohet çdo 5 minuta.":"Përmbledhja e 29 tetorit 2026 — vetëm fakte të shkurtra dhe lidhje te burimet zyrtare.";
+  $("#sumList").innerHTML=items.map((s,i)=>'<li><span class="num">0'+(i+1)+'</span><div class="body"><span class="eyebrow">'+esc(s.meta)+'</span><h3 class="clamp3">'+esc(s.title)+'</h3><p class="clamp2">'+esc(s.desc)+'</p><div class="srcs">'+s.links.map(l=>'<a href="'+esc(l.url)+'" target="_blank" rel="noopener">'+esc(l.name)+' ↗</a>').join("")+'</div></div></li>').join("");
+}
+function renderStory(){
+  const w=["Një","Dy","Tre","Katër","Pesë","Gjashtë","Shtatë","Tetë","Nëntë","Dhjetë"];let list,lead;
+  if(autoClusters){const c=autoClusters[0];list=c.mem.map(m=>({src:m.src,title:m.title,url:linkOf(m)}));lead="Sot, automatikisht: "+(c.topic.length?"“"+c.topic.join(" · ")+"”":"lajmi më i mbuluar")+" — "+c.mem.length+" burime e kanë. Shiko si e titullon secili, krah për krah."}
+  else{list=storyCoverage.map(c=>({src:c.src,title:c.title,url:srcUrl(c.src)}));lead="Seanca plenare në kaos, 29 tetor 2026. Shiko si e titullon secili burim, krah për krah — klikimi hap faqen zyrtare."}
+  $("#voiceCount").textContent=(w[list.length-1]||list.length)+(list.length===1?" zë.":" zëra.");
+  $("#ditaLead").textContent=lead;
+  $("#voices").innerHTML=list.map((c,i)=>'<a class="voice" href="'+esc(c.url)+'" target="_blank" rel="noopener"><span class="vh"><span class="eyebrow">'+esc(c.src)+'</span><span class="eyebrow">0'+(i+1)+'</span></span><h3 class="clamp3">'+esc(c.title)+'</h3><span class="go">Lexo te '+esc(c.src)+' '+ICO.ext+'</span></a>').join("");
+}
+
+/* ---------- kopertina për story + dëgjo ---------- */
+async function storyCover(){
+  const items=summaryItems().slice(0,5),btn=$("#coverBtn span");btn.textContent="Po krijohet…";
+  try{await Promise.all([document.fonts.load('64px "Instrument Serif"'),document.fonts.load('italic 64px "Instrument Serif"'),document.fonts.load('500 22px "JetBrains Mono"')])}catch(e){}
+  const W=1080,H=1920,c=document.createElement("canvas");c.width=W;c.height=H;const x=c.getContext("2d");
+  const SERIF='"Instrument Serif", Georgia, serif',MONO='"JetBrains Mono", ui-monospace, monospace';
+  x.fillStyle="#0C0C0D";x.fillRect(0,0,W,H);x.fillStyle="rgba(255,255,255,0.03)";for(let y=0;y<H;y+=4)x.fillRect(0,y,W,1);
+  x.fillStyle="#F3F0EA";x.font="84px "+SERIF;x.fillText("Shqip",80,200);const lw=x.measureText("Shqip").width;
+  x.font="500 24px "+MONO;const tw=x.measureText("LIVE").width;x.fillStyle="#E3271D";x.fillRect(80+lw+20,148,tw+40,50);x.fillStyle="#fff";x.fillText("LIVE",80+lw+40,182);
+  x.fillStyle="#A19D96";x.font="500 24px "+MONO;x.fillText($("#today").textContent.toUpperCase(),80,272);
+  x.fillStyle="#F3F0EA";x.font="140px "+SERIF;x.fillText("Lajmet",76,480);x.fillStyle="#A19D96";x.font="italic 140px "+SERIF;x.fillText("e ditës.",76,610);
+  const wrap=(t,max)=>{const ws=String(t).split(/\s+/),ls=[];let l="";ws.forEach(w=>{const t2=l?l+" "+w:w;if(x.measureText(t2).width>max&&l){ls.push(l);l=w}else l=t2});if(l)ls.push(l);return ls};
+  const top=700,bottom=1730;let fs=54,blocks=[];
+  for(;fs>=36;fs-=3){x.font=fs+"px "+SERIF;blocks=items.map(it=>{let ls=wrap(it.title,800);if(ls.length>3){ls=ls.slice(0,3);ls[2]=ls[2].replace(/\s*\S*$/,"")+"…"}return ls});const h=blocks.reduce((a,b)=>a+28+fs+(b.length-1)*fs*1.15+42+30,0);if(h<=bottom-top)break}
+  let y=top;
+  items.forEach((it,i)=>{x.fillStyle="#26262A";x.fillRect(80,y,W-160,2);y+=28+fs;x.fillStyle="#E3271D";x.font="italic 80px "+SERIF;x.fillText("0"+(i+1),80,y+8);x.fillStyle="#F3F0EA";x.font=fs+"px "+SERIF;blocks[i].forEach((l,j)=>x.fillText(l,210,y+j*fs*1.15));y+=(blocks[i].length-1)*fs*1.15+42;x.fillStyle="#A19D96";x.font="500 22px "+MONO;x.fillText(String(it.src).toUpperCase(),210,y);y+=30});
+  x.fillStyle="#26262A";x.fillRect(80,1770,W-160,2);x.fillStyle="#A19D96";x.font="500 24px "+MONO;x.fillText("ERIONNEZHA.GITHUB.IO/SHQIPLIVE",80,1830);const r="LIVE TV · 18 BURIME";x.fillText(r,W-80-x.measureText(r).width,1830);
+  c.toBlob(b=>{btn.textContent="Kopertina për Story";shareBlob(b,"shqiplive-story.png","Shqip Live — Lajmet e ditës")},"image/png");
+}
+$("#coverBtn").onclick=storyCover;
+const speakBtn=$("#speakBtn");
+function setSpeak(on){speakBtn.querySelector("span").textContent=on?"Ndalo leximin":"Dëgjo në 1 minutë";speakBtn.setAttribute("aria-pressed",String(on))}
+if(!("speechSynthesis" in window))speakBtn.hidden=true;
+else speakBtn.onclick=()=>{const S=window.speechSynthesis;if(S.speaking){S.cancel();setSpeak(false);return}
+  const n=["Një","Dy","Tre","Katër","Pesë"],items=summaryItems().slice(0,5);
+  const u=new SpeechSynthesisUtterance("Shqip Live. Lajmet e ditës. "+items.map((it,i)=>n[i]+". "+it.title.toLowerCase().replace(/^./,ch=>ch.toUpperCase())+". Burimi: "+it.src+".").join(" "));
+  u.lang="sq-AL";const v=S.getVoices().find(v=>/^sq/i.test(v.lang));if(v)u.voice=v;u.onend=u.onerror=()=>setSpeak(false);S.speak(u);setSpeak(true)};
+
+/* ---------- filtrat ---------- */
+function renderChips(){
+  const html=topics.map(t=>'<button class="chip'+(t[0]===topic?' on':'')+'" type="button" data-topic="'+t[0]+'" aria-pressed="'+(t[0]===topic)+'">'+t[1]+'</button>').join("");
+  $("#topicsA").innerHTML=html;$("#topicsB").innerHTML=html;
+}
+function topicOk(name){
+  if(topic==="all")return true;
+  if(topic==="fav")return favs().includes(name);
+  const s=sources.find(x=>x.name===name);return s?s.topics.includes(topic):false;
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-topic]");if(!b)return;topic=b.dataset.topic;renderChips();renderHeadlines();renderSources()});
+
+/* ---------- titujt sipas burimit ---------- */
+function renderHeadlines(){
+  const q=($("#q").value||"").trim().toLowerCase();let count=0;
+  const filtering=!!q||topic!=="all";
+  const html=headlines.filter(g=>topicOk(g.src)).filter((g,i)=>filtering||hlOpen||i<6).map(g=>{
+    const items=titlesFor(g.src).filter(it=>!q||it.title.toLowerCase().includes(q));
+    if(!items.length)return"";count+=items.length;
+    return '<article class="group"><div class="group-h"><h3>'+esc(g.src)+(liveTitles[g.src]?'<span class="livetag">LIVE</span>':'')+'</h3>'+favBtn(g.src)+'</div><ul>'+items.map(it=>hlItem(g.src,it)).join("")+'</ul><a class="open" href="'+esc(srcUrl(g.src))+'" target="_blank" rel="noopener"><span>Hap '+esc(g.src)+'</span>'+ICO.ext.replace('<svg','<svg width="14" height="14"')+'</a></article>';
+  }).join("");
+  $("#headlines").innerHTML=html;$("#noResults").hidden=!!count;
+  $("#hlMoreWrap").hidden=filtering;$("#hlMore").textContent=hlOpen?"Shfaq më pak":"Shfaq të "+headlines.length+" burimet";
+  if(!count)$("#noResults").textContent=topic==="fav"&&!favs().length?"Ende s’ke burime të preferuara — prek yllin te një burim dhe titujt e tij dalin këtu.":"Asnjë titull nuk përputhet sot. Provo një fjalë tjetër ose pastro kërkimin.";
+}
+function favBtn(name){const on=favs().includes(name);return '<button class="ib sm'+(on?' on':'')+'" type="button" data-fav="'+esc(name)+'" aria-pressed="'+on+'" aria-label="'+(on?'Hiq '+esc(name)+' nga të preferuarat':'Bëje '+esc(name)+' të preferuar')+'">'+ICO.star+'</button>'}
+$("#q").addEventListener("input",renderHeadlines);
+$("#hlMore").onclick=()=>{hlOpen=!hlOpen;renderHeadlines();if(!hlOpen)$("#bysource").scrollIntoView({block:"start"})};
+$("#srcMore").onclick=()=>{srcOpen=!srcOpen;renderSources();if(!srcOpen)$("#burimet").scrollIntoView({block:"start"})};
+$("#clearQ").onclick=()=>{$("#q").value="";renderHeadlines();$("#q").focus()};
+$("#searchBtn").onclick=()=>{$("#bysource").scrollIntoView({behavior:"smooth",block:"start"});setTimeout(()=>$("#q").focus({preventScroll:true}),500)};
+
+/* ---------- burimet + faqja ime ---------- */
+function renderSources(){
+  const filtering=topic!=="all";
+  $("#srcMoreWrap").hidden=filtering;$("#srcMore").textContent=srcOpen?"Shfaq më pak":"Shfaq të "+sources.length+" burimet";
+  $("#sources").innerHTML=sources.filter(s=>topicOk(s.name)).filter((s,i)=>filtering||srcOpen||i<9).map((s,i)=>'<article class="src"><div class="src-h"><span class="eyebrow">'+String(i+1).padStart(2,"0")+' · '+esc(s.type)+'</span>'+favBtn(s.name)+'</div><h3>'+esc(s.name)+'</h3><p class="clamp3">'+esc(s.desc)+'</p><div class="tags">'+s.topics.map(t=>'<span class="tag">'+esc(t)+'</span>').join("")+'</div><a class="open" href="'+esc(s.url)+'" target="_blank" rel="noopener"><span>Hap faqen zyrtare</span>'+ICO.ext+'</a></article>').join("")||'<p class="empty" style="grid-column:1/-1">Ende s’ke burime të preferuara. Zgjidh “Të gjitha” dhe prek yllin te një burim.</p>';
+}
+function renderMyPage(){
+  const f=favs(),sec=$("#faqjaime");
+  if(!f.length){sec.hidden=true;return}
+  sec.hidden=false;
+  $("#myPage").innerHTML=f.filter(n=>sources.some(s=>s.name===n)).map(n=>{
+    const items=titlesFor(n);
+    return '<article class="group"><div class="group-h"><h3>'+esc(n)+(liveTitles[n]?'<span class="livetag">LIVE</span>':'')+'</h3>'+favBtn(n)+'</div><ul>'+(items.length?items.map(it=>hlItem(n,it)).join(""):'<li class="hl"><span style="color:var(--mute);font-size:14.5px">Ky burim s’ka tituj të sotëm këtu — hape te faqja zyrtare.</span></li>')+'</ul><a class="open" href="'+esc(srcUrl(n))+'" target="_blank" rel="noopener"><span>Hap '+esc(n)+'</span>'+ICO.ext.replace('<svg','<svg width="14" height="14"')+'</a></article>';
+  }).join("");
+}
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-fav]");if(!b)return;
+  const f=favs(),n=b.dataset.fav,i=f.indexOf(n);if(i>=0)f.splice(i,1);else f.push(n);store("lajmet_fav",f);
+  renderSources();renderHeadlines();renderMyPage();
+});
+
+/* ---------- të ruajturat ---------- */
+document.addEventListener("click",e=>{
+  const b=e.target.closest("[data-save]");if(!b)return;
+  const f=savedTitles(),t=b.dataset.title,i=f.findIndex(x=>x.title===t);
+  if(i>=0)f.splice(i,1);else f.unshift({src:b.dataset.src,title:t,link:b.dataset.link});
+  store("lajmet_ruajtur",f);refreshSaves();
+});
+function refreshSaves(){renderSaved();renderHeadlines();renderMyPage();renderLatest()}
+function renderSaved(){
+  const f=savedTitles();
+  $("#savedCnt").textContent=f.length;$("#savedCnt").classList.toggle("show",f.length>0);
+  $("#savedEmpty").hidden=!!f.length;
+  $("#savedList").innerHTML=f.map((it,i)=>'<li class="hl"><div style="flex:1;min-width:0"><a href="'+esc(safeUrl(it.link)!=="#"?it.link:srcUrl(it.src))+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><small>'+esc(it.src)+'</small></div><span class="act"><button class="ib sm" type="button" data-share data-src="'+esc(it.src)+'" data-title="'+esc(it.title)+'" aria-label="Krijo foto për ndarje">'+ICO.share+'</button><button class="ib sm" type="button" data-del="'+i+'" aria-label="Hiq nga të ruajturat">'+ICO.x+'</button></span></li>').join("");
+}
+document.addEventListener("click",e=>{const b=e.target.closest("[data-del]");if(!b)return;const f=savedTitles();f.splice(+b.dataset.del,1);store("lajmet_ruajtur",f);refreshSaves()});
+let lastFocus=null;
+function drawer(on){$("#drawer").classList.toggle("on",on);$("#scrim").classList.toggle("on",on);$("#drawer").setAttribute("aria-hidden",!on);if(on){lastFocus=document.activeElement;setTimeout(()=>$("#drClose").focus(),50)}else if(lastFocus)lastFocus.focus()}
+$("#savedBtn").onclick=()=>drawer(true);$("#drClose").onclick=()=>drawer(false);$("#scrim").onclick=()=>drawer(false);
+document.addEventListener("keydown",e=>{if(e.key==="Escape"&&$("#drawer").classList.contains("on"))drawer(false)});
+
+/* ---------- foto për ndarje ---------- */
+document.addEventListener("click",e=>{const b=e.target.closest("[data-share]");if(b)shareCard(b.dataset.title,b.dataset.src)});
+async function shareCard(title,src){
+  try{await Promise.all([document.fonts.load('64px "Instrument Serif"'),document.fonts.load('500 22px "JetBrains Mono"')])}catch(e){}
+  const c=document.createElement("canvas");c.width=1200;c.height=630;const x=c.getContext("2d");
+  x.fillStyle="#0C0C0D";x.fillRect(0,0,1200,630);
+  x.fillStyle="rgba(255,255,255,0.03)";for(let y=0;y<630;y+=4)x.fillRect(0,y,1200,1);
+  x.fillStyle="#F3F0EA";x.font='60px "Instrument Serif", Georgia, serif';x.textBaseline="alphabetic";x.fillText("Shqip",72,118);
+  const w=x.measureText("Shqip").width;x.fillStyle="#E3271D";x.fillRect(72+w+16,84,92,36);
+  x.fillStyle="#fff";x.font='500 18px "JetBrains Mono", monospace';x.fillText("LIVE",72+w+30,109);
+  x.fillStyle="#F3F0EA";x.font='64px "Instrument Serif", Georgia, serif';
+  const words=title.split(" "),lines=[];let line="";
+  words.forEach(wd=>{const t2=line?line+" "+wd:wd;if(x.measureText(t2).width>1040&&line){lines.push(line);line=wd}else line=t2});lines.push(line);
+  let y=230;lines.slice(0,5).forEach((l,i,a)=>{x.fillText(i===4&&lines.length>5?l+"…":l,72,y);y+=72});
+  x.fillStyle="#26262A";x.fillRect(72,530,1056,1);
+  x.fillStyle="#A19D96";x.font='500 20px "JetBrains Mono", monospace';x.fillText(("BURIMI: "+src).toUpperCase(),72,578);
+  const tag="ERIONNEZHA.GITHUB.IO/SHQIPLIVE";x.fillText(tag,1128-x.measureText(tag).width,578);
+  c.toBlob(async blob=>{
+    const file=new File([blob],"shqiplive-lajm.png",{type:"image/png"});
+    try{if(navigator.share&&navigator.canShare&&navigator.canShare({files:[file]})){await navigator.share({files:[file],title:title});return}}catch(e){if(e&&e.name==="AbortError")return}
+    const a=document.createElement("a");a.href=URL.createObjectURL(blob);a.download="shqiplive-lajm.png";document.body.appendChild(a);a.click();a.remove();
+  },"image/png");
+}
+
+/* ---------- feed live (RSS) ---------- */
+function renderLatest(){
+  const el=$("#latestList"),st=$("#latestStatus");
+  if(!latestFeed.length){el.innerHTML='<p class="empty">Ende pa feed live — sapo faqja lidhet me rrjetin, këtu dalin titujt më të freskët nga burimet me RSS, sipas orës.</p>';return}
+  const sorted=latestFeed.slice().sort((a,b)=>new Date(b.pub)-new Date(a.pub)).slice(0,12);
+  el.innerHTML=sorted.map(it=>{
+    let tm="";try{tm=new Date(it.pub).toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit",hour12:false,timeZone:"Europe/Tirane"})}catch(e){}
+    const url=safeUrl(it.link)!=="#"?it.link:srcUrl(it.src),on=isSaved(it.title);
+    const nw=isNew(it);
+    return '<div class="row'+(nw?' new':'')+'"><span class="tm">'+esc(tm||"—")+'</span><span class="who">'+esc(it.src)+(nw?'<span class="newtag">E RE</span>':'')+'</span><a class="ttl" href="'+esc(url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><span class="act"><button class="ib sm'+(on?' on':'')+'" type="button" data-save data-src="'+esc(it.src)+'" data-title="'+esc(it.title)+'" data-link="'+esc(url)+'" aria-pressed="'+on+'" aria-label="'+(on?'Hiq nga të ruajturat':'Ruaj titullin')+'">'+ICO.save+'</button><button class="ib sm" type="button" data-share data-src="'+esc(it.src)+'" data-title="'+esc(it.title)+'" aria-label="Krijo foto për ndarje">'+ICO.share+'</button></span></div>';
+  }).join("");
+  st.textContent="12 titujt më të freskët nga burimet me RSS live, sipas orës së Tiranës. Rifreskohet vetë çdo 5 minuta.";
+}
+let pulsePrev=0;
+function renderPulse(){
+  let total=0;const per={},words={};
+  const stop=["dhe","nga","për","në","të","është","me","sot","pas","para","mbi","tek","si","kur","nuk","edhe","por","apo","një","janë","u","e","i","a","o","te","kjo","ky","këtë","atë","ai","ajo","ka","kanë","do","deri","lajmi","fundit","live"];
+  headlines.forEach(g=>{const disp=titlesFor(g.src).map(t=>t.title);per[g.src]=disp.length;total+=disp.length;
+    disp.forEach(ti=>ti.toLowerCase().replace(/[^a-zçë\s]/g," ").split(/\s+/).forEach(w=>{if(w.length>3&&stop.indexOf(w)<0)words[w]=(words[w]||0)+1}))});
+  const topSrc=Object.keys(per).sort((a,b)=>per[b]-per[a]);
+  const topWord=Object.keys(words).sort((a,b)=>words[b]-words[a])[0];
+  const now=Date.now(),B=new Array(12).fill(0);let liveN=0;
+  latestFeed.forEach(it=>{const t=Date.parse(it.pub);if(!t)return;const h=Math.floor((now-t)/36e5);if(h>=0&&h<12){B[11-h]++;liveN++}});
+  const mx=Math.max(1,...B),pk=B.indexOf(Math.max(...B));
+  const hh=h=>new Date(now-h*36e5).toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit",hour12:false});
+  const bars=B.map((v,i)=>'<i'+(liveN&&i===pk?' class="pk"':'')+' style="height:'+Math.max(4,Math.round(v/mx*100))+'%;animation-delay:'+(i*40)+'ms" title="'+v+' tituj"></i>').join("");
+  $("#pulse").innerHTML=
+   '<div class="stat"><span class="eyebrow">Pulsi i ditës</span><b id="pTotal">'+pulsePrev+'</b><span>tituj sot nga '+Object.keys(per).length+' burime</span></div>'+
+   (topWord?'<div class="stat"><span class="eyebrow">Fjala që dominon</span><b class="word">“'+esc(topWord)+'”</b><span>'+words[topWord]+' herë në titujt e sotëm</span></div>':'')+
+   '<div class="stat"><span class="eyebrow">Më aktivi</span><b>'+esc(topSrc[0]||"—")+'</b><span>'+(per[topSrc[0]]||0)+' tituj · pastaj '+esc(topSrc.slice(1,3).join(", "))+'</span></div>'+
+   '<div class="stat"><span class="eyebrow">Ritmi · 12 orët e fundit</span><div class="bars" role="img" aria-label="'+liveN+' tituj live sipas orës në 12 orët e fundit">'+bars+'</div><div class="bars-x"><span>'+hh(11)+'</span><span>TANI</span></div><span>'+(liveN?liveN+" tituj live nga ":"Pa të dhëna live ende · ")+Object.keys(liveTitles).length+' / '+Object.keys(rssFeeds).length+' burime RSS</span></div>';
+  countUp($("#pTotal"),total,pulsePrev);pulsePrev=total;
+  countUp($("#kpiTitles"),total);
+}
+function showBreaking(src,title,link){$("#breakingLink").textContent=title;$("#breakingLink").href=safeUrl(link)!=="#"?link:srcUrl(src);$("#breakingSrc").textContent=src;$("#breaking").classList.add("on")}
+$("#breakingClose").onclick=()=>$("#breaking").classList.remove("on");
+async function fetchFeed(name){
+  const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(rssFeeds[name]));if(!r.ok)throw 0;
+  const xml=new DOMParser().parseFromString(await r.text(),"text/xml");
+  return Array.from(xml.querySelectorAll("item")).slice(0,5).map(it=>({title:((it.querySelector("title")||{}).textContent||"").trim(),link:((it.querySelector("link")||{}).textContent||"").trim(),pub:(it.querySelector("pubDate")||{}).textContent||""})).filter(it=>it.title);
+}
+async function loadLiveHeadlines(){
+  const names=Object.keys(rssFeeds),fresh=[];
+  const res=await Promise.allSettled(names.map(fetchFeed));
+  res.forEach((r,i)=>{if(r.status!=="fulfilled"||!r.value.length)return;const name=names[i];
+    r.value.forEach(it=>{const key=(name+"|"+it.title).toLowerCase();
+      if(!latestFeed.some(x=>(x.src+"|"+x.title).toLowerCase()===key))latestFeed.push({src:name,title:it.title,link:it.link,pub:it.pub});
+      if(breakingBaseline&&!knownTitles.has(key))fresh.push({src:name,...it});knownTitles.add(key)});
+    liveTitles[name]=r.value.slice(0,3)});
+  const ok=Object.keys(liveTitles);
+  $("#liveStatus").textContent=ok.length?("Live: "+ok.length+" nga "+names.length+" burime RSS · të tjerët mbajnë titujt e 29 tetorit"):"RSS live s’u lidh tani · po shfaqen titujt e 29 tetorit";
+  computeClusters();renderHeadlines();renderMyPage();renderLatest();renderPulse();renderTicker();renderSummary();renderStory();renderNewBar();
+  if(fresh.length){fresh.sort((a,b)=>new Date(b.pub)-new Date(a.pub));showBreaking(fresh[0].src,fresh[0].title,fresh[0].link)}
+  breakingBaseline=true;
+  if(!window._breakingTimer)window._breakingTimer=setInterval(loadLiveHeadlines,300000);
+}
+$("#refreshLiveBtn").onclick=()=>{$("#liveStatus").textContent="Po rifreskohen titujt live…";loadLiveHeadlines()};
+
+/* ---------- regjia 2x2 ---------- */
+const rgList=channels.filter(c=>c.src).slice(0,4);let rgHls=[];
+const rgOpen=()=>$("#regjia").classList.contains("on");
+function openRegjia(){
+  if(rgOpen())return;
+  video.pause();frame.removeAttribute("src");toggleMini(false);
+  $("#rgGrid").innerHTML=rgList.map((c,i)=>'<button class="rg-cell" type="button" data-rg="'+i+'" aria-label="Jepi zë '+esc(c.name)+'"><video muted autoplay playsinline></video><span class="rg-lbl"><span class="livetag"><span class="dot pulse"></span>LIVE</span><b>'+esc(c.name)+'</b><span class="rg-hint">Prek për zë</span></span></button>').join("");
+  $("#rgGrid").querySelectorAll("video").forEach((v,i)=>{const src=rgList[i].src;
+    if(window.Hls&&Hls.isSupported()){const h=new Hls({maxBufferLength:10,capLevelToPlayerSize:true});h.loadSource(src);h.attachMedia(v);h.on(Hls.Events.MANIFEST_PARSED,()=>v.play().catch(()=>{}));rgHls.push(h)}
+    else{v.src=src;v.play().catch(()=>{})}});
+  $("#regjia").classList.add("on");$("#regjia").setAttribute("aria-hidden","false");document.body.style.overflow="hidden";setTimeout(()=>$("#rgClose").focus(),50);
+}
+function closeRegjia(){
+  if(!rgOpen())return;
+  rgHls.forEach(h=>{try{h.destroy()}catch(e){}});rgHls=[];
+  $("#rgGrid").querySelectorAll("video").forEach(v=>{v.pause();v.removeAttribute("src");v.load()});
+  $("#rgGrid").innerHTML="";$("#regjia").classList.remove("on");$("#regjia").setAttribute("aria-hidden","true");document.body.style.overflow="";
+  play(idx);$("#regjiaBtn").focus();
+}
+$("#rgGrid").addEventListener("click",e=>{const b=e.target.closest("[data-rg]");if(!b)return;const i=+b.dataset.rg;
+  $("#rgGrid").querySelectorAll(".rg-cell").forEach((c,j)=>{const v=c.querySelector("video");v.muted=j!==i;if(j===i)v.play().catch(()=>{});c.classList.toggle("on",j===i);c.querySelector(".rg-hint").textContent=j===i?"Me zë":"Prek për zë"})});
+$("#regjiaBtn").onclick=openRegjia;$("#rgClose").onclick=closeRegjia;
+
+/* ---------- shkurtoret ---------- */
+document.addEventListener("keydown",e=>{
+  if(e.key==="Escape"&&rgOpen()){closeRegjia();return}
+  if((e.metaKey||e.ctrlKey)&&e.key.toLowerCase()==="k"){e.preventDefault();$("#searchBtn").click();return}
+  if(e.metaKey||e.ctrlKey||e.altKey||e.target.closest("input,textarea,select,[contenteditable]")||$("#drawer").classList.contains("on"))return;
+  const k=e.key.toLowerCase();
+  if(rgOpen()){if(/^[1-4]$/.test(k)){const c=$("#rgGrid").querySelector('[data-rg="'+(+k-1)+'"]');if(c)c.click()}return}
+  if(/^[1-6]$/.test(k))play(+k-1);
+  else if(k==="m")$("#muteBtn").click();
+  else if(k==="g")openRegjia();
+  else if(k==="/"){e.preventDefault();$("#searchBtn").click()}
+});
+
+/* ---------- animacionet e hyrjes ---------- */
+if("IntersectionObserver" in window){const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -8% 0px"});document.querySelectorAll(".reveal").forEach(el=>io.observe(el))}else document.querySelectorAll(".reveal").forEach(el=>el.classList.add("in"));
+
+/* ---------- start ---------- */
+if("serviceWorker" in navigator){navigator.serviceWorker.register("sw.js").catch(()=>{})}
+applyTheme();renderChips();renderTicker();renderSummary();renderStory();renderSaved();renderChannels();renderSources();renderHeadlines();renderMyPage();renderLatest();renderPulse();
+play(0);loadLiveHeadlines();
+window.addEventListener("load",()=>setTimeout(()=>$("#loader").classList.add("hide"),500));
+setTimeout(()=>$("#loader").classList.add("hide"),2500);
 </script>
 </body>
 </html>

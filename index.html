@@ -104,11 +104,11 @@ body.dark .btn.primary{background:#f6f3ec;color:#121212;border-color:#f6f3ec}
 <section aria-label="Live TV">
 <h2>📺 Live TV — kanale lajmesh</h2>
 <div class="stories" id="stories"></div>
-<div class="stage"><video id="player" controls autoplay muted playsinline></video>
+<div class="stage"><video id="player" controls autoplay muted playsinline></video><iframe id="framePlayer" title="Report TV live" style="display:none;width:100%;aspect-ratio:16/9;border:0;background:#000" allow="autoplay; fullscreen" allowfullscreen></iframe>
 <div class="bar"><div><span class="live">● LIVE</span> <span id="chName">News 24</span></div><div style="display:flex;gap:8px"><button class="btn" id="prevBtn" type="button">◀ Para</button><button class="btn primary" id="nextBtn" type="button">Tjetri ▶</button></div></div></div>
 <p id="status">Po lidhet me News 24… Zëri nis i heshtur — hiq mute për zë.</p>
 <div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn primary" id="retryBtn" type="button">Riprovo live</button><button class="btn" id="miniBtn" type="button">📌 Mbaje live sipër</button><a class="btn" href="https://www.balkanweb.com/news24-live/" target="_blank" rel="noopener">Hap live zyrtar News24 ↗</a><a class="btn" href="https://report-tv.al/report_live" target="_blank" rel="noopener">Hap live zyrtar Report TV ↗</a></div>
-<p class="muted">Kanale live të verifikuara 29.10.2026 me playlist të freskët: News24, A2 CNN, Ora News, Syri TV, CNA. Report TV: transmetimi live u verifikua sot në faqen e tij zyrtare (report-tv.al/report_live) dhe u shtua si link zyrtar — stream-i direkt (.m3u8) nuk ekspozohet në faqe, ndaj nuk futet në player-in tonë. Alpo TV dhe Panorama TV nuk janë futur — verifikimi i tyre dështoi / mbeti i pakonfirmuar.</p>
+<p class="muted">Kanale live të verifikuara 29.10.2026 me playlist të freskët: News24, A2 CNN, Ora News, Syri TV, CNA. Report TV: tani luan BRENDA player-it, përmes player-it zyrtar të vet faqes (deb20stream) — adresa e stream-it merret vetë nga player-i zyrtar me token 30-minutësh, ndaj nuk ka nevojë për link statik. Alpo TV dhe Panorama TV nuk janë futur — verifikimi i tyre dështoi / mbeti i pakonfirmuar.</p>
 </section>
 
 
@@ -155,7 +155,8 @@ const channels=[
 {id:"a2",name:"A2 CNN Albania",short:"A2",src:"https://tv.a2news.com/live/smil:a2cnnweb.stream.smil/playlist.m3u8"},
 {id:"ora",name:"Ora News",short:"ORA",src:"https://live1.mediadesk.al/oranews.m3u8"},
 {id:"syri",name:"Syri TV",short:"SYRI",src:"https://stream.syritv.al/live/syritv/playlist.m3u8"},
-{id:"cna",name:"CNA",short:"CNA",src:"https://live1.mediadesk.al/cnatvlive.m3u8"}
+{id:"cna",name:"CNA",short:"CNA",src:"https://live1.mediadesk.al/cnatvlive.m3u8"},
+{id:"report",name:"Report TV",short:"RTV",iframe:"https://deb20stream.duckdns.org/playerhls10.html"}
 ];
 const sources=[
 {name:"News24",url:"https://www.news24.al",type:"TV + Portal",topics:["politikë","kronikë","ekonomi","botë"],desc:"Televizioni informativ — lajmet e fundit, politikë, kronikë dhe drejtësi."},
@@ -199,6 +200,9 @@ let hls=null,idx=0,topic="all";
 function favs(){try{return JSON.parse(localStorage.getItem("lajmet_fav")||"[]")}catch(e){return[]}}
 function renderStories(){storiesEl.innerHTML="";channels.forEach(function(c,i){const b=document.createElement("button");b.className="story"+(i===idx?" on":"");b.dataset.id=c.id;b.textContent=c.name;b.onclick=function(){play(i)};storiesEl.appendChild(b)})}
 function play(i){idx=(i+channels.length)%channels.length;const ch=channels[idx];nameEl.textContent=ch.name;statusEl.textContent="Po lidhet me "+ch.name+"…";
+const fp=document.getElementById("framePlayer");
+if(ch.iframe){if(hls){try{hls.destroy()}catch(e){} hls=null} video.pause();video.removeAttribute("src");video.load();video.style.display="none";fp.style.display="block";if(fp.getAttribute("src")!==ch.iframe)fp.setAttribute("src",ch.iframe);statusEl.textContent="Duke luajtur: "+ch.name+" • LIVE (përmes player-it zyrtar)";renderStories();return}
+fp.style.display="none";fp.removeAttribute("src");video.style.display="block";
 if(hls){try{hls.destroy()}catch(e){} hls=null}
 if(window.Hls&&Hls.isSupported()){hls=new Hls({maxBufferLength:30});hls.loadSource(ch.src);hls.attachMedia(video);hls.on(Hls.Events.MANIFEST_PARSED,function(){video.play().catch(function(){});statusEl.textContent="Duke luajtur: "+ch.name+" • LIVE"});hls.on(Hls.Events.ERROR,function(e,d){if(d.fatal){statusEl.textContent="Stream-i i "+ch.name+" nuk u hap në këtë browser. Provo Riprovo."}})}
 else if(video.canPlayType("application/vnd.apple.mpegurl")){video.src=ch.src;video.play().catch(function(){});statusEl.textContent="Duke luajtur: "+ch.name+" • LIVE (native HLS)"}

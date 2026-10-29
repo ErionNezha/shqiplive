@@ -130,6 +130,12 @@ body.dark .btn.primary{background:#f6f3ec;color:#121212;border-color:#f6f3ec}
 <div class="sources" id="sources"></div>
 </section>
 
+<section aria-label="Të fundit nga të gjitha">
+<h2>🕐 Të fundit nga të gjitha</h2>
+<p class="muted" id="latestStatus">Feed-i kronologjik po mblidhet nga 6 burimet me RSS live…</p>
+<div class="storybox"><ul id="latestList" style="margin:0;padding-left:18px"></ul></div>
+</section>
+
 <section aria-label="Titujt e sotëm">
 <h2>📰 Titujt e sotëm, sipas burimit</h2>
 <p class="muted">Tituj të marrë sot, 29 tetor 2026, nga faqet kryesore të burimeve. Klikimi hap faqen zyrtare të burimit — aty gjen artikullin e plotë. Nuk kopjojmë tekst artikujsh dhe nuk sajojmë linke artikujsh.</p>
@@ -204,9 +210,12 @@ function renderHeadlines(){const q=(document.getElementById("q").value||"").toLo
 const items=disp.filter(function(it){return !q||it.title.toLowerCase().includes(q)});if(!items.length)return;count+=items.length;const d=document.createElement("div");d.className="hl";const sv=savedTitles();d.innerHTML="<h3>"+g.src+(liveTitles[g.src]?"<span class='livetag'>LIVE</span>":"")+"</h3><ul>"+items.map(function(it){const isSv=sv.some(function(x){return x.title===it.title});return "<li><a href='"+it.url+"' target='_blank' rel='noopener'>"+it.title+"</a><button class='savebtn"+(isSv?" on":"")+"' data-src='"+g.src+"' data-title='"+it.title.replace(/'/g,"&#39;")+"'>"+(isSv?"★ E ruajtur":"☆ Ruaj")+"</button></li>"}).join("")+"</ul>";el.appendChild(d)});el.querySelectorAll(".savebtn[data-src]").forEach(function(b){b.onclick=function(){let f=savedTitles();const it={src:b.dataset.src,title:b.dataset.title};const i=f.findIndex(function(x){return x.title===it.title});if(i>=0)f.splice(i,1);else f.push(it);try{localStorage.setItem("lajmet_ruajtur",JSON.stringify(f))}catch(e){} renderSaved();renderHeadlines()}});document.getElementById("noResults").style.display=count?"none":"block"}
 const rssFeeds={"News24":"https://www.news24.al/feed/","Panorama":"https://panorama.com.al/feed/","Euronews Albania":"https://euronews.al/feed/","Gazeta Shqiptare":"https://gazetashqiptare.al/feed/","JavaNews":"https://javanews.al/feed/","Telegrafi":"https://telegrafi.com/rss"};
 let liveTitles={};
-async function loadLiveHeadlines(){const names=Object.keys(rssFeeds);let ok=0;for(const name of names){try{const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(rssFeeds[name]));if(!r.ok)continue;const txt=await r.text();const xml=new DOMParser().parseFromString(txt,"text/xml");const items=Array.from(xml.querySelectorAll("item")).slice(0,3).map(function(it){return {title:(it.querySelector("title")||{}).textContent||"",link:(it.querySelector("link")||{}).textContent||""}}).filter(function(it){return it.title});if(items.length){liveTitles[name]=items;ok++}}catch(e){}}
+let latestFeed=[];
+function renderLatest(){const el=document.getElementById("latestList"),st=document.getElementById("latestStatus");if(!latestFeed.length){el.innerHTML="<li class='muted'>Ende pa feed live — kur faqja hapet me rrjet, këtu dalin titujt më të freskët nga të gjitha burimet me RSS, sipas orës.</li>";return}
+const sorted=latestFeed.slice().sort(function(a,b){return new Date(b.pub)-new Date(a.pub)}).slice(0,10);el.innerHTML=sorted.map(function(it){let tm="";try{tm=new Date(it.pub).toLocaleTimeString("sq-AL",{hour:"2-digit",minute:"2-digit",timeZone:"Europe/Tirane"})}catch(e){}return "<li style='margin:9px 0;line-height:1.4'><b>"+it.src+(tm?" · "+tm:"")+"</b>: <a href='"+it.link+"' target='_blank' rel='noopener'>"+it.title+"</a></li>"}).join("");st.textContent="10 titujt më të freskët nga 6 burimet me RSS live, sipas orës (Tiranë).";}
+async function loadLiveHeadlines(){const names=Object.keys(rssFeeds);let ok=0;for(const name of names){try{const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(rssFeeds[name]));if(!r.ok)continue;const txt=await r.text();const xml=new DOMParser().parseFromString(txt,"text/xml");const items=Array.from(xml.querySelectorAll("item")).slice(0,5).map(function(it){return {title:(it.querySelector("title")||{}).textContent||"",link:(it.querySelector("link")||{}).textContent||"",pub:(it.querySelector("pubDate")||{}).textContent||""}}).filter(function(it){return it.title});if(items.length){items.forEach(function(it){latestFeed.push({src:name,title:it.title,link:it.link,pub:it.pub})})}const topItems=items.slice(0,3);if(topItems.length){liveTitles[name]=topItems;ok++}}catch(e){}}
 document.getElementById("liveStatus").textContent="Tituj live: "+ok+" nga 6 burime me RSS u përditësuan tani ("+names.filter(function(n){return liveTitles[n]}).join(", ")+"). 12 burimet e tjera pa RSS mbajnë titujt e 29 tetorit 2026. Përmbledhja e ditës dhe \u201cNjë lajm, shumë burime\u201d mbeten të 29 tetorit.";
-if(ok){renderHeadlines();renderMyPage()}}
+if(ok){renderHeadlines();renderMyPage()}renderLatest()}
 document.querySelectorAll("#topicFilters button").forEach(function(b){b.onclick=function(){document.querySelectorAll("#topicFilters button").forEach(function(x){x.classList.remove("on")});b.classList.add("on");topic=b.dataset.topic;renderSources()}});
 document.getElementById("q").addEventListener("input",renderHeadlines);
 document.getElementById("clearQ").onclick=function(){document.getElementById("q").value="";renderHeadlines()};
@@ -246,7 +255,7 @@ function renderSaved(){const f=savedTitles(),ul=document.getElementById("savedLi
 function applyDark(){const d=localStorage.getItem("lajmet_dark")==="1";document.body.classList.toggle("dark",d);const b=document.getElementById("darkBtn");if(b)b.textContent=d?"☀️ Modaliteti i ditës":"🌙 Modaliteti i natës"}
 document.getElementById("darkBtn").onclick=function(){const d=document.body.classList.toggle("dark");try{localStorage.setItem("lajmet_dark",d?"1":"0")}catch(e){} applyDark()};
 if('serviceWorker' in navigator){navigator.serviceWorker.register('sw.js').catch(function(){});}
-applyDark();renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();renderMyPage();play(0);loadLiveHeadlines();
+applyDark();renderLatest();renderStory();renderSummary();renderSaved();renderStories();renderSources();renderHeadlines();renderMyPage();play(0);loadLiveHeadlines();
 </script>
 </body>
 </html>

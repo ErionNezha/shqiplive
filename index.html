@@ -226,6 +226,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .hl a{flex:1;min-width:0;font-size:15.5px;line-height:1.42}
 .hl a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
 .hl .act{display:flex;gap:6px;flex:none}
+.hl .tm{flex:none;width:auto;white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--mute);padding-top:2px}
 .group .open{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);margin-top:auto;font-size:13px;color:var(--ink2)}
 .group .open:hover{color:var(--ink)}
 .sub-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:clamp(56px,7vw,88px) 0 22px}
@@ -510,7 +511,8 @@ const channels=[
 {id:"ora",name:"Ora News",note:"Lajme · 24/7",src:"https://live1.mediadesk.al/oranews.m3u8",official:"https://oranews.tv"},
 {id:"syri",name:"Syri TV",note:"Lajme · 24/7",src:"https://stream.syritv.al/live/syritv/playlist.m3u8",official:"https://www.syri.net"},
 {id:"cna",name:"CNA",note:"Lajme · 24/7",src:"https://live1.mediadesk.al/cnatvlive.m3u8",official:"https://live1.mediadesk.al/cnatvlive.m3u8"},
-{id:"report",name:"Report TV",note:"Përmes player-it zyrtar",iframe:"https://deb20stream.duckdns.org/playerhls10.html",official:"https://report-tv.al/report_live"}
+{id:"report",name:"Report TV",note:"Përmes player-it zyrtar",iframe:"https://deb20stream.duckdns.org/playerhls10.html",official:"https://report-tv.al/report_live"},
+{id:"vizion",name:"Vizion Plus",note:"TV · Live",src:"https://tringliveviz.akamaized.net/delta/105/out/u/qwaszxerdfcvrtryuy.m3u8",official:"https://vizionplus.tv"}
 ];
 const sources=[
 {name:"News24",url:"https://www.news24.al",type:"TV + Portal",topics:["politikë","kronikë","ekonomi","botë"],desc:"Televizioni informativ — lajmet e fundit, politikë, kronikë dhe drejtësi."},
@@ -537,24 +539,26 @@ const headlines=[
 {src:"Top Channel",items:["Real Madrid vijon marshimin në Champions League, ‘Los Blancos’ i imponohen edhe Leipzig","Futbolli i kthehet Top-it/ Sezoni i ri i Champions League ekskluzivisht në Top Channel","Yjet Shqiptarë të Diasporës"]},
 {src:"Syri",items:["Nuk kërkoi falje që i quajti trafikantë/ Rama s","Deklarata - Berisha: Rama dhe Vuçiçi janë dy gangsterët më të mëdhenj të rajonit, dy antishqiptarët më të damkosur","Berisha: Asnjë element të ANTIFA-s nuk ka në k"]},
 {src:"Panorama",items:["Reshje shiu në pjesën më të madhe të vendit, njihuni me parashikimin e motit! Ja sa do jenë temperaturat","Lexoni faqen e parë të gazetës “Panorama”, “Panorama Sport” dhe “Gazeta Shqiptare”","Parashikimi i horoskopit 30 tetor, ja çfarë kanë rezervuar yjet për ju sot"]},
-{src:"Euronews Albania",items:["Berisha paraqitet për masën “detyrim paraqitjeje”, akuzon SPAK: Po amniston krimin elektoral","Grabitje me armë në një bankë të nivelit të dytë në Tiranë","Veliaj u zhvendos në burgun e Fierit, Komiteti Shqiptar i Helsinkit: Nuk iu komunikua urdhri i transferimit"]},
-{src:"BalkanWeb",items:["Universiteti “Luarasi” në ditën e dytë të ICEF Berlin 2026, interes ndërkombëtar dhe partneritete të reja në arsimin e lartë","Homazhe për diplomatin Bashkim Zeneli/ “Po punonte për dy libra, më kërkoi…”, Paskal Milo: Iku një nga figurat më të shquara të diplomacisë shqiptare","Ish-kreu i SHISH Vlora Hyseni para Apelit të GJKKO-së, kërkon ndryshimin e masës së sigurisë"]},
-{src:"Shqiptarja",items:["Nga thashethemet në fakt, Elia Caprile bëhet shtetas shqiptar! Presidenti Begaj firmos dekretin, a do të mbrojë ngjyrat kuqezi portieri?","Protestat e dhunshme/ Lirohen 58 protestues, Gjykata e Tiranës lë në detyrim paraqitjeje 53 prej tyre! 11 të arrestuar gjatë 24 orëve të fundit (EMRAT)","Fotogaleri"]},
+{src:"Euronews Albania",items:["Detaje nga grabitja e bankës në Tiranë: Autori me kapuç e kapele të zezë, i vuri armën rojes","Vlora Hyseni ankimon “arrestin në shtëpi”, paraqitet sot në Apelin e GJKKO-së","Berisha paraqitet për masën “detyrim paraqitjeje”, akuzon SPAK: Po amniston krimin elektoral"]},
+{src:"BalkanWeb",items:["“Tris” i Real Madrid, “Los Blancos” ruajnë hapin e kryesuesëve, Mou: Po rritemi","Pas rasteve në Francë, sulm kibernetik edhe në Suedi/ Hakerat ndryshojnë temperaturën e frigoriferëve në supermarkete, ushqimet rrezikojnë të prishen","Bombardimet në Gaza/ Të paktën 11 palestinezë të vrarë nga sulmet izraelite, mes viktimave edhe një fëmijë 4-vjeçar"]},
+{src:"Shqiptarja",items:["Nga thashethemet në fakt, Elia Caprile bëhet shtetas shqiptar! Presidenti Begaj firmos dekretin, a do të mbrojë ngjyrat kuqezi portieri?","Protestat e dhunshme/ Lirohen 58 protestues, Gjykata e Tiranës lë në detyrim paraqitjeje 53 prej tyre! 11 të arrestuar gjatë 24 orëve të fundit (EMRAT)","Gjykata e Lartë, zyrat e Bankës së Shqipërisë dhe filiali i bankës së djegur, çfarë mbeti pas zjarreve të protestuesve"]},
 {src:"Report TV",items:["ENGLISH VERSION/ Kanye West concert in Tirana, shuttle services, traffic restrictions and everything fans need to know"]},
-{src:"Lapsi",items:["Edi Rama declares Erjon Veliaj a putschist \"He financed violent protests\" - LAPSI.al","British actor, icon of \"Star Trek\" and \"X-Men\", dies - LAPSI.al","Movement in the SP for the transfer of Veliaj/ Xhafaj and Çuçi sign the urgent request for the Minister of Justice - LAPSI.al"]},
+{src:"Lapsi",items:["Protests in Albania in focus of AFP/ Clashes in Tirana and demands for Rama's resignation - LAPSI.al","Protesters don't stop, they return again in front of the Prime Minister's Office - LAPSI.al","The protest spreads to the streets of Tirana, the police begin to pursue and escort \"Myslym Shyri\" - LAPSI.al"]},
 {src:"Gazeta Shqiptare",items:["Rikthehet llogaria e News24 në Instagram! Profili zyrtar dyshohet se u sulmua për shkak të pasqyrimit të protestave studentore. META po heton rastin","Një fosil 17 milionë vjeçar në Egjipt mund të ndryshojë historinë e origjinës së njeriut","Studentët refuzuan deputetët e PD në protestë/ Berisha: Jagot e flamingove sillen si korba për të marrë shpërblime nga Rama. Mjeranë të lëshojnë klithma…"]},
 {src:"ABC News",items:["Valter Bami suspect of assassination released from prison - Abc News – Lajmet e fundit","Albania took USD 900 Mln debt for ‘New Development Programme’ - Abc News Albania","FOTO/ Shkëlqim Devolli me bashkëshorten në dasmën e familjes së Donald Trump - Abc News – Lajmet e fundit"]},
-{src:"JavaNews",items:["Grabitet me armë banka te Komuna e Parisit, autori kërcënoi arkëtaren dhe rojen, largohet me monopatinë","Përplasja për pagat e magjistratëve, Gjykata Kushtetuese shqyrton më 2 dhjetor kërkesën kundër mazhorancës","Tronditet bota e artit! Ndërron jetë në moshën 41-vjeçare aktori dhe regjisori Gjergj Mena"]},
-{src:"VoxNews",items:["Bank robbed at gunpoint in Paris Commune","Berisha attacks SPAK and Altin Duman","Director Gjergj Mena passes away at the age of 41!"]},
+{src:"JavaNews",items:["Nga bonusi i bebeve tek pensionet dhe taksat, ministri Malaj prezanton Buxhetin 2027","Horoskopi nga Jorgo Pulla, këto shenja duhet të tregojnë kujdes në vendimmarrje","Grabitet me armë banka te Komuna e Parisit, autori kërcënoi arkëtaren dhe rojen, largohet me monopatinë"]},
+{src:"VoxNews",items:["Bank robbed at gunpoint in Paris Commune","Director Gjergj Mena passes away at the age of 41!","The academic world is in mourning, as professor and former dean of the Faculty of Economics, Sulo Hadëri, passes away"]},
 {src:"TV Klan",items:["France, Albania sign strategic partnership agreement","“Rezultat pozitiv 32 mijë anëtarë të rinj të PS”, Rama në Asamblenë e PS: Të miratojmë mbajtjen e Kongresit më 20 Korrik","50 mijë Euro çmimi i madh! “Love Island Albania” vjen në Tv Klan në Shtator"]},
 {src:"JOQ Albania",items:["Tourists’ choice/ The best night clubs to visit in Albania","The attack on JOQ/European Centre for Press & Media Freedom \"slap\" Veliaj: We are shocked, apologize!","Shqiptarët e Kosovës fluturojnë nga gëzimi, marrin një lajm të madh para ndeshjes me Finlandën"]},
-{src:"Telegrafi",items:["Bajraktari u bën thirrje shqiptarëve dhe amerikanëve për të votuar: Demokracia mbrohet duke marrë pjesë në procesin zgjedhor","Grabitet me armë një bankë te Komuna e Parisit","Mediat e njohura njëzëri: Edon Zhegrova meriton më shumë minuta te Juventusi"]}
+{src:"Telegrafi",items:["Stërvitje 15-minutëshe pa pajisje për ditët kur nuk keni kohë për palestër","Ishte pranë kalimit te Real Madridi, ylli i Interit i nis negociatat me Barcelonën","Shkundja e një foshnje mund të ketë efekte afatgjata, si ta përballoni të qarën"]}
 ];
+const dailyMeta={"temp": 21, "cond": "I vranët", "fx": 91.0, "date": "2 Nëntor 2026"};
+const headlineTimes={"News24": ["26.10 23:22", "25.10 22:11", "08.10 11:53"], "Top Channel": ["10.09 18:09", "02.08 09:00", "24.09 13:56"], "Syri": ["24.10 11:47", "23.10 13:53", "21.10 13:43"], "Panorama": ["30.10 07:06", "30.10 07:00", "30.10 06:57"], "Euronews Albania": ["11:27", "11:20", "11:01"], "BalkanWeb": ["11:32", "11:28", "11:22"], "Shqiptarja": ["23.10 09:00", "21.10 09:00", "18.10 09:00"], "Report TV": ["11.07 09:00"], "Lapsi": ["31.10 21:43", "31.10 18:53", "31.10 17:55"], "Gazeta Shqiptare": ["11:12", "11:11", "11:09"], "ABC News": ["18.01 11:16", "04.04 11:57", "13.11 18:22"], "JavaNews": ["11:28", "11:19", "11:08"], "VoxNews": ["11:30", "10:14", "10:00"], "TV Klan": ["19.06 05:48", "11.06 17:41", "16.07 23:42"], "JOQ Albania": ["04.06 09:00", "04.04 09:00", "07.03 16:45"], "Telegrafi": ["11:27", "11:27", "11:26"]};
 const storyCoverage=[
-{src:"Euronews Albania",title:"Berisha paraqitet për masën “detyrim paraqitjeje”, akuzon SPAK: Po amniston krimin elektoral"},
 {src:"Gazeta Shqiptare",title:"Studentët refuzuan deputetët e PD në protestë/ Berisha: Jagot e flamingove sillen si korba për të marrë shpërblime nga Rama. Mjeranë të lëshojnë klithma…"},
-{src:"Syri",title:"Deklarata - Berisha: Rama dhe Vuçiçi janë dy gangsterët më të mëdhenj të rajonit, dy antishqiptarët më të damkosur"},
-{src:"VoxNews",title:"Berisha attacks SPAK and Altin Duman"}
+{src:"Lapsi",title:"Protests in Albania in focus of AFP/ Clashes in Tirana and demands for Rama's resignation - LAPSI.al"},
+{src:"Syri",title:"Nuk kërkoi falje që i quajti trafikantë/ Rama s"},
+{src:"TV Klan",title:"“Rezultat pozitiv 32 mijë anëtarë të rinj të PS”, Rama në Asamblenë e PS: Të miratojmë mbajtjen e Kongresit më 20 Korrik"}
 ];
 const daySummary=[
 {t:"Kaosi në Kuvend",d:"Seanca plenare u mbyll mes tymit, flakadanëve dhe bllokimit të foltores; deputetë të PD-së u përjashtuan.",links:["Top Channel","Syri","TV Klan"]},
@@ -594,12 +598,13 @@ let hlOpen=false,srcOpen=false,liveTitles={},latestFeed=[],knownTitles=new Set()
 function titlesFor(name){
   if(liveTitles[name])return liveTitles[name].map(it=>({title:it.title,url:safeUrl(it.link)||srcUrl(name)}));
   const g=headlines.find(h=>h.src===name);
-  return g?g.items.map(t=>({title:t,url:srcUrl(name)})):[];
+  const tm=(typeof headlineTimes!=="undefined"&&headlineTimes[name])||[];
+  return g?g.items.map((t,i)=>({title:t,url:srcUrl(name),time:tm[i]||null})):[];
 }
 function isSaved(t){return savedTitles().some(x=>x.title===t)}
 function hlItem(src,it){
   const on=isSaved(it.title);
-  return '<li class="hl"><a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><span class="act">'+
+  return '<li class="hl">'+(it.time?'<span class="tm">'+esc(it.time)+'</span>':'')+'<a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><span class="act">'+
    '<button class="ib sm'+(on?' on':'')+'" type="button" data-save data-src="'+esc(src)+'" data-title="'+esc(it.title)+'" data-link="'+esc(it.url)+'" aria-pressed="'+on+'" aria-label="'+(on?'Hiq nga të ruajturat':'Ruaj titullin')+'">'+ICO.save+'</button>'+
    '<button class="ib sm" type="button" data-share data-src="'+esc(src)+'" data-title="'+esc(it.title)+'" aria-label="Krijo foto për ndarje">'+ICO.share+'</button></span></li>';
 }
@@ -865,7 +870,7 @@ function renderLatest(){
 let pulsePrev=0;
 function renderPulse(){
   let total=0;const per={},words={};
-  const stop=["dhe","nga","për","në","të","është","me","sot","pas","para","mbi","tek","si","kur","nuk","edhe","por","apo","një","janë","u","e","i","a","o","te","kjo","ky","këtë","atë","ai","ajo","ka","kanë","do","deri","lajmi","fundit","live"];
+  const stop=["dhe","nga","për","në","të","është","me","sot","pas","para","mbi","tek","si","kur","nuk","edhe","por","apo","një","janë","u","e","i","a","o","te","kjo","ky","këtë","atë","ai","ajo","ka","kanë","do","deri","lajmi","fundit","live","news","video","foto","fotot","videot","shqip","albania","tv","lajme"];
   headlines.forEach(g=>{const disp=titlesFor(g.src).map(t=>t.title);per[g.src]=disp.length;total+=disp.length;
     disp.forEach(ti=>ti.toLowerCase().replace(/[^a-zçë\s]/g," ").split(/\s+/).forEach(w=>{if(w.length>3&&stop.indexOf(w)<0)words[w]=(words[w]||0)+1}))});
   const topSrc=Object.keys(per).sort((a,b)=>per[b]-per[a]);
@@ -879,7 +884,8 @@ function renderPulse(){
    '<div class="stat"><span class="eyebrow">Pulsi i ditës</span><b id="pTotal">'+pulsePrev+'</b><span>tituj sot nga '+Object.keys(per).length+' burime</span></div>'+
    (topWord?'<div class="stat"><span class="eyebrow">Fjala që dominon</span><b class="word">“'+esc(topWord)+'”</b><span>'+words[topWord]+' herë në titujt e sotëm</span></div>':'')+
    '<div class="stat"><span class="eyebrow">Më aktivi</span><b>'+esc(topSrc[0]||"—")+'</b><span>'+(per[topSrc[0]]||0)+' tituj · pastaj '+esc(topSrc.slice(1,3).join(", "))+'</span></div>'+
-   '<div class="stat"><span class="eyebrow">Ritmi · 12 orët e fundit</span><div class="bars" role="img" aria-label="'+liveN+' tituj live sipas orës në 12 orët e fundit">'+bars+'</div><div class="bars-x"><span>'+hh(11)+'</span><span>TANI</span></div><span>'+(liveN?liveN+" tituj live nga ":"Pa të dhëna live ende · ")+Object.keys(liveTitles).length+' / '+Object.keys(rssFeeds).length+' burime RSS</span></div>';
+   '<div class="stat"><span class="eyebrow">Ritmi · 12 orët e fundit</span><div class="bars" role="img" aria-label="'+liveN+' tituj live sipas orës në 12 orët e fundit">'+bars+'</div><div class="bars-x"><span>'+hh(11)+'</span><span>TANI</span></div><span>'+(liveN?liveN+" tituj live nga ":"Pa të dhëna live ende · ")+Object.keys(liveTitles).length+' / '+Object.keys(rssFeeds).length+' burime RSS</span></div>'+
+   (typeof dailyMeta!=="undefined"&&dailyMeta?'<div class="stat"><span class="eyebrow">Moti + kursi · Tiranë</span><b>'+esc(dailyMeta.temp)+'°</b><span>'+esc(dailyMeta.cond)+' · 1 € = '+esc(dailyMeta.fx)+' lekë · '+esc(dailyMeta.date)+'</span></div>':'');
   countUp($("#pTotal"),total,pulsePrev);pulsePrev=total;
   countUp($("#kpiTitles"),total);
 }

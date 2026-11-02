@@ -13,7 +13,7 @@
 <meta property="og:title" content="Shqip Live — Të gjitha lajmet. Një ekran.">
 <meta property="og:description" content="18 faqe zyrtare shqiptare dhe 6 kanale lajmesh live, në një vend.">
 <meta property="og:type" content="website">
-<script>try{var t=localStorage.getItem("shqiplive_theme");if(t==="light")document.documentElement.setAttribute("data-theme","light")}catch(e){}</script>
+<script>try{var t=localStorage.getItem("shqiplive_theme");if(t==="light")document.documentElement.setAttribute("data-theme","light");else if(!t){var h=+new Date().toLocaleString("en-US",{hour:"numeric",hour12:false,timeZone:"Europe/Tirane"});if(h>=7&&h<20)document.documentElement.setAttribute("data-theme","light")}}catch(e){}</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
@@ -227,6 +227,7 @@ a:focus-visible,button:focus-visible,input:focus-visible{outline:2px solid var(-
 .hl a:hover{text-decoration:underline;text-decoration-color:var(--accent);text-underline-offset:4px}
 .hl .act{display:flex;gap:6px;flex:none}
 .hl .tm{flex:none;width:auto;white-space:nowrap;font-family:var(--mono);font-size:13px;color:var(--mute);padding-top:2px}
+.hl img.th{flex:none;width:64px;height:48px;object-fit:cover;border-radius:6px}
 .group .open{display:flex;align-items:center;justify-content:space-between;padding:14px 0;border-top:1px solid var(--line);margin-top:auto;font-size:13px;color:var(--ink2)}
 .group .open:hover{color:var(--ink)}
 .sub-h{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:baseline;gap:8px 24px;margin:clamp(56px,7vw,88px) 0 22px}
@@ -536,27 +537,30 @@ const sources=[
 ];
 const headlines=[
 {src:"News24",items:["Aleati i ngushtë i Trump/ Kandidati për Guvernator të New York-ut, Bruce Blakeman flet për News24: Kathy Hochul e ka bërë jetën të papërballueshme. Do të ul taksat, më shumë vende pune!","115,6 miliardë USD shpenzime për Medicaid-in/ Trump kërkon llogari nga Kathy Hochul, rivalja e Bruce Blakman nën hetimin federal për mashtrim dhe shpërdorim fondesh","Gazetarja e famshme amerikane ndjek revoltën e qytetarëve në Tiranë dhe shpërndan pamjet e News24: Protesta është e gjallë në ditën e 130-të"]},
-{src:"Top Channel",items:["Real Madrid vijon marshimin në Champions League, ‘Los Blancos’ i imponohen edhe Leipzig","Futbolli i kthehet Top-it/ Sezoni i ri i Champions League ekskluzivisht në Top Channel","Yjet Shqiptarë të Diasporës"]},
+{src:"Top Channel",items:["King Charles meets the Ambassador of Albania Uran Ferizi, Top Channel reveals","Fiks Fare hap audicionet për velina!","Shqipëria kryeson me femicidin në Ballkanin Perëndimor"]},
 {src:"Syri",items:["Nuk kërkoi falje që i quajti trafikantë/ Rama s","Deklarata - Berisha: Rama dhe Vuçiçi janë dy gangsterët më të mëdhenj të rajonit, dy antishqiptarët më të damkosur","Berisha: Asnjë element të ANTIFA-s nuk ka në k"]},
 {src:"Panorama",items:["Reshje shiu në pjesën më të madhe të vendit, njihuni me parashikimin e motit! Ja sa do jenë temperaturat","Lexoni faqen e parë të gazetës “Panorama”, “Panorama Sport” dhe “Gazeta Shqiptare”","Parashikimi i horoskopit 30 tetor, ja çfarë kanë rezervuar yjet për ju sot"]},
-{src:"Euronews Albania",items:["Detaje nga grabitja e bankës në Tiranë: Autori me kapuç e kapele të zezë, i vuri armën rojes","Vlora Hyseni ankimon “arrestin në shtëpi”, paraqitet sot në Apelin e GJKKO-së","Berisha paraqitet për masën “detyrim paraqitjeje”, akuzon SPAK: Po amniston krimin elektoral"]},
-{src:"BalkanWeb",items:["“Tris” i Real Madrid, “Los Blancos” ruajnë hapin e kryesuesëve, Mou: Po rritemi","Pas rasteve në Francë, sulm kibernetik edhe në Suedi/ Hakerat ndryshojnë temperaturën e frigoriferëve në supermarkete, ushqimet rrezikojnë të prishen","Bombardimet në Gaza/ Të paktën 11 palestinezë të vrarë nga sulmet izraelite, mes viktimave edhe një fëmijë 4-vjeçar"]},
-{src:"Shqiptarja",items:["Nga thashethemet në fakt, Elia Caprile bëhet shtetas shqiptar! Presidenti Begaj firmos dekretin, a do të mbrojë ngjyrat kuqezi portieri?","Protestat e dhunshme/ Lirohen 58 protestues, Gjykata e Tiranës lë në detyrim paraqitjeje 53 prej tyre! 11 të arrestuar gjatë 24 orëve të fundit (EMRAT)","Gjykata e Lartë, zyrat e Bankës së Shqipërisë dhe filiali i bankës së djegur, çfarë mbeti pas zjarreve të protestuesve"]},
+{src:"Euronews Albania",items:["Deputetët dhe ministrat gjermanë paralajmërojnë se iPhone-t janë shënjestruar nga programet spiune","Homazhe për Bashkim Zenelin, Paskal Milo: Mbetet një nga figurat më të shquara të diplomacisë shqiptare","Studiuesi francez David Colon: Aktorë të huaj ndërhyjnë në debatin publik shqiptar për të dëmtuar integrimin në BE"]},
+{src:"BalkanWeb",items:["“Rama në burg, Berisha në burg”/ Nis dita e 21 e protestës së studentëve, të rinjtë futen në Universitetin e Arteve dhe Fakultetin e Drejtësisë, kërkojnë bojkot: Bashkohuni me ne!","Përcillet sot në banesën e fundit / Homazhe në Kuvendin e Shqipërisë për diplomatin Bashkim Zeneli, Namik Dokle: Humbje për të gjithë vendin","“Tris” i Real Madrid, “Los Blancos” ruajnë hapin e kryesuesëve, Mou: Po rritemi"]},
+{src:"Shqiptarja",items:["Qeveria shpëton koncertin e Kanye West duke dhënë 4 mln euro! Rama: Nëse nuk do të realizohej, humbiste ekonomia e Tiranës (VIDEO)","'Pazar' në Kategorinë e Parë, Kukësi merr ish-sulmuesin e Tiranës","Mbreti i Spanjës uron Metën: Suksese në misionin tuaj"]},
 {src:"Report TV",items:["ENGLISH VERSION/ Kanye West concert in Tirana, shuttle services, traffic restrictions and everything fans need to know"]},
-{src:"Lapsi",items:["Protests in Albania in focus of AFP/ Clashes in Tirana and demands for Rama's resignation - LAPSI.al","Protesters don't stop, they return again in front of the Prime Minister's Office - LAPSI.al","The protest spreads to the streets of Tirana, the police begin to pursue and escort \"Myslym Shyri\" - LAPSI.al"]},
+{src:"Lapsi",items:["Edi Rama declares Erjon Veliaj a putschist \"He financed violent protests\" - LAPSI.al","British actor, icon of \"Star Trek\" and \"X-Men\", dies - LAPSI.al","Movement in the SP for the transfer of Veliaj/ Xhafaj and Çuçi sign the urgent request for the Minister of Justice - LAPSI.al"]},
 {src:"Gazeta Shqiptare",items:["Rikthehet llogaria e News24 në Instagram! Profili zyrtar dyshohet se u sulmua për shkak të pasqyrimit të protestave studentore. META po heton rastin","Një fosil 17 milionë vjeçar në Egjipt mund të ndryshojë historinë e origjinës së njeriut","Studentët refuzuan deputetët e PD në protestë/ Berisha: Jagot e flamingove sillen si korba për të marrë shpërblime nga Rama. Mjeranë të lëshojnë klithma…"]},
 {src:"ABC News",items:["Valter Bami suspect of assassination released from prison - Abc News – Lajmet e fundit","Albania took USD 900 Mln debt for ‘New Development Programme’ - Abc News Albania","FOTO/ Shkëlqim Devolli me bashkëshorten në dasmën e familjes së Donald Trump - Abc News – Lajmet e fundit"]},
-{src:"JavaNews",items:["Nga bonusi i bebeve tek pensionet dhe taksat, ministri Malaj prezanton Buxhetin 2027","Horoskopi nga Jorgo Pulla, këto shenja duhet të tregojnë kujdes në vendimmarrje","Grabitet me armë banka te Komuna e Parisit, autori kërcënoi arkëtaren dhe rojen, largohet me monopatinë"]},
-{src:"VoxNews",items:["Bank robbed at gunpoint in Paris Commune","Director Gjergj Mena passes away at the age of 41!","The academic world is in mourning, as professor and former dean of the Faculty of Economics, Sulo Hadëri, passes away"]},
+{src:"JavaNews",items:["Kriza e buxhetit, drejt rënies qeveria e Belgjikës","“Lehtësim të kostove për pacientët”, shtohen 155 barna në listën e rimbursimit","Historiani francez ngre alarmin: Aktorë të huaj po ndërhyjnë në debatin publik shqiptar për të penguar integrimin në BE"]},
+{src:"VoxNews",items:["Bank robbed at gunpoint in Paris Commune","Oil smuggling to Kosovo? Autobot blocked for 4 days in Morina and then released \"with intervention from above\"","Berisha attacks SPAK and Altin Duman"]},
 {src:"TV Klan",items:["France, Albania sign strategic partnership agreement","“Rezultat pozitiv 32 mijë anëtarë të rinj të PS”, Rama në Asamblenë e PS: Të miratojmë mbajtjen e Kongresit më 20 Korrik","50 mijë Euro çmimi i madh! “Love Island Albania” vjen në Tv Klan në Shtator"]},
 {src:"JOQ Albania",items:["Tourists’ choice/ The best night clubs to visit in Albania","The attack on JOQ/European Centre for Press & Media Freedom \"slap\" Veliaj: We are shocked, apologize!","Shqiptarët e Kosovës fluturojnë nga gëzimi, marrin një lajm të madh para ndeshjes me Finlandën"]},
-{src:"Telegrafi",items:["Stërvitje 15-minutëshe pa pajisje për ditët kur nuk keni kohë për palestër","Ishte pranë kalimit te Real Madridi, ylli i Interit i nis negociatat me Barcelonën","Shkundja e një foshnje mund të ketë efekte afatgjata, si ta përballoni të qarën"]}
+{src:"Telegrafi",items:["Gjermania lehtëson njohjen e diplomave shëndetësore, përfitojnë edhe profesionistët nga Kosova","Dyshohet se kërcënoi bashkëshorten, drejtorit të Spitalit të Mitrovicës i caktohet arrest shtëpiak","Kontroll në Gostivar, gjendet drogë - ndalohet një person"]}
 ];
+const headlineImages={"News24": ["https://www.news24.al/wp-content/uploads/2026/10/Trump-Blakeman-150x150.jpg", "https://www.news24.al/wp-content/uploads/2026/10/Kathy-Hochul-Bruce-Blakman-600x338-1-150x150.jpg", "https://www.news24.al/wp-content/uploads/2026/10/Protesta-gazetarja-amerikane-150x150.jpg"], "Top Channel": [null, null, null], "Syri": [null, null, null], "Panorama": [null, null, null], "Euronews Albania": [null, null, null], "BalkanWeb": [null, null, null], "Shqiptarja": [null, null, null], "Report TV": [null], "Lapsi": [null, null, null], "Gazeta Shqiptare": ["https://gazetashqiptare.al/wp-content/uploads/2026/11/WhatsApp-Image-2026-11-02-at-10.48.55-1024x891.jpeg", "https://gazetashqiptare.al/wp-content/uploads/2026/11/fosil-168x300.jpg", null], "ABC News": [null, null, null], "JavaNews": [null, null, null], "VoxNews": [null, null, null], "TV Klan": [null, null, null], "JOQ Albania": [null, null, null], "Telegrafi": ["https://telegrafi.com/media-library/image.jpg?id=68576133&width=980", "https://telegrafi.com/media-library/image.jpg?id=68576138&width=980", "https://telegrafi.com/media-library/mpb-mk.png?id=62259680&width=980"]};
 const dailyMeta={"temp": 21, "cond": "I vranët", "fx": 91.0, "date": "2 Nëntor 2026"};
-const headlineTimes={"News24": ["26.10 23:22", "25.10 22:11", "08.10 11:53"], "Top Channel": ["10.09 18:09", "02.08 09:00", "24.09 13:56"], "Syri": ["24.10 11:47", "23.10 13:53", "21.10 13:43"], "Panorama": ["30.10 07:06", "30.10 07:00", "30.10 06:57"], "Euronews Albania": ["11:27", "11:20", "11:01"], "BalkanWeb": ["11:32", "11:28", "11:22"], "Shqiptarja": ["23.10 09:00", "21.10 09:00", "18.10 09:00"], "Report TV": ["11.07 09:00"], "Lapsi": ["31.10 21:43", "31.10 18:53", "31.10 17:55"], "Gazeta Shqiptare": ["11:12", "11:11", "11:09"], "ABC News": ["18.01 11:16", "04.04 11:57", "13.11 18:22"], "JavaNews": ["11:28", "11:19", "11:08"], "VoxNews": ["11:30", "10:14", "10:00"], "TV Klan": ["19.06 05:48", "11.06 17:41", "16.07 23:42"], "JOQ Albania": ["04.06 09:00", "04.04 09:00", "07.03 16:45"], "Telegrafi": ["11:27", "11:27", "11:26"]};
+const headlineTimes={"News24": ["26.10 23:22", "25.10 22:11", "08.10 11:53"], "Top Channel": ["30.05 09:00", "15.02 20:11", "15.01 09:00"], "Syri": ["24.10 11:47", "23.10 13:53", "21.10 13:43"], "Panorama": ["30.10 07:06", "30.10 07:00", "30.10 06:57"], "Euronews Albania": ["11:57", "11:47", "11:44"], "BalkanWeb": ["11:38", "11:33", "11:32"], "Shqiptarja": ["07.07 09:00", "03.07 09:00", "27.07 09:00"], "Report TV": ["11.07 09:00"], "Lapsi": ["30.10 17:02", "29.10 21:19", "29.10 18:59"], "Gazeta Shqiptare": ["11:12", "11:11", "11:09"], "ABC News": ["18.01 11:16", "04.04 11:57", "13.11 18:22"], "JavaNews": ["11:56", "11:46", "11:37"], "VoxNews": ["11:30", "11:25", "10:30"], "TV Klan": ["19.06 05:48", "11.06 17:41", "16.07 23:42"], "JOQ Albania": ["04.06 09:00", "04.04 09:00", "07.03 16:45"], "Telegrafi": ["11:51", "11:51", "11:40"]};
 const storyCoverage=[
+{src:"BalkanWeb",title:"“Rama në burg, Berisha në burg”/ Nis dita e 21 e protestës së studentëve, të rinjtë futen në Universitetin e Arteve dhe Fakultetin e Drejtësisë, kërkojnë bojkot: Bashkohuni me ne!"},
 {src:"Gazeta Shqiptare",title:"Studentët refuzuan deputetët e PD në protestë/ Berisha: Jagot e flamingove sillen si korba për të marrë shpërblime nga Rama. Mjeranë të lëshojnë klithma…"},
-{src:"Lapsi",title:"Protests in Albania in focus of AFP/ Clashes in Tirana and demands for Rama's resignation - LAPSI.al"},
+{src:"Lapsi",title:"Edi Rama declares Erjon Veliaj a putschist \"He financed violent protests\" - LAPSI.al"},
+{src:"Shqiptarja",title:"Qeveria shpëton koncertin e Kanye West duke dhënë 4 mln euro! Rama: Nëse nuk do të realizohej, humbiste ekonomia e Tiranës (VIDEO)"},
 {src:"Syri",title:"Nuk kërkoi falje që i quajti trafikantë/ Rama s"},
 {src:"TV Klan",title:"“Rezultat pozitiv 32 mijë anëtarë të rinj të PS”, Rama në Asamblenë e PS: Të miratojmë mbajtjen e Kongresit më 20 Korrik"}
 ];
@@ -596,15 +600,16 @@ const srcUrl=n=>{const s=sources.find(x=>x.name===n);return s?s.url:"#"};
 let hlOpen=false,srcOpen=false,liveTitles={},latestFeed=[],knownTitles=new Set(),breakingBaseline=false,topic="all",idx=0,hls=null;
 
 function titlesFor(name){
-  if(liveTitles[name])return liveTitles[name].map(it=>({title:it.title,url:safeUrl(it.link)||srcUrl(name)}));
+  if(liveTitles[name])return liveTitles[name].map(it=>({title:it.title,url:safeUrl(it.link)||srcUrl(name),img:it.img||null}));
   const g=headlines.find(h=>h.src===name);
   const tm=(typeof headlineTimes!=="undefined"&&headlineTimes[name])||[];
-  return g?g.items.map((t,i)=>({title:t,url:srcUrl(name),time:tm[i]||null})):[];
+  const im=(typeof headlineImages!=="undefined"&&headlineImages[name])||[];
+  return g?g.items.map((t,i)=>({title:t,url:srcUrl(name),time:tm[i]||null,img:im[i]||null})):[];
 }
 function isSaved(t){return savedTitles().some(x=>x.title===t)}
 function hlItem(src,it){
   const on=isSaved(it.title);
-  return '<li class="hl">'+(it.time?'<span class="tm">'+esc(it.time)+'</span>':'')+'<a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><span class="act">'+
+  return '<li class="hl">'+(it.time?'<span class="tm">'+esc(it.time)+'</span>':'')+(it.img?'<img class="th" src="'+esc(it.img)+'" alt="" loading="lazy" onerror="this.remove()">':'')+'<a href="'+esc(it.url)+'" target="_blank" rel="noopener">'+esc(it.title)+'</a><span class="act">'+
    '<button class="ib sm'+(on?' on':'')+'" type="button" data-save data-src="'+esc(src)+'" data-title="'+esc(it.title)+'" data-link="'+esc(it.url)+'" aria-pressed="'+on+'" aria-label="'+(on?'Hiq nga të ruajturat':'Ruaj titullin')+'">'+ICO.save+'</button>'+
    '<button class="ib sm" type="button" data-share data-src="'+esc(src)+'" data-title="'+esc(it.title)+'" aria-label="Krijo foto për ndarje">'+ICO.share+'</button></span></li>';
 }
@@ -894,7 +899,7 @@ $("#breakingClose").onclick=()=>$("#breaking").classList.remove("on");
 async function fetchFeed(name){
   const r=await fetch("https://api.allorigins.win/raw?url="+encodeURIComponent(rssFeeds[name]));if(!r.ok)throw 0;
   const xml=new DOMParser().parseFromString(await r.text(),"text/xml");
-  return Array.from(xml.querySelectorAll("item")).slice(0,5).map(it=>({title:((it.querySelector("title")||{}).textContent||"").trim(),link:((it.querySelector("link")||{}).textContent||"").trim(),pub:(it.querySelector("pubDate")||{}).textContent||""})).filter(it=>it.title);
+  return Array.from(xml.querySelectorAll("item")).slice(0,5).map(it=>{const th=it.getElementsByTagName("media:thumbnail")[0],en=it.querySelector("enclosure");let img=th?th.getAttribute("url"):"";if(!img&&en&&(en.getAttribute("type")||"").indexOf("image/")===0)img=en.getAttribute("url")||"";if(!img){const d=(it.querySelector("description")||{}).textContent||"",dm=d.match(/<img[^>]+src="(https:\/\/[^"]+)"/);if(dm&&!/pixel|tracking|beacon|1x1|spacer|emoji|s\.w\.org/i.test(dm[1]))img=dm[1]}if(img.indexOf("https://")!==0)img="";return{title:((it.querySelector("title")||{}).textContent||"").trim(),link:((it.querySelector("link")||{}).textContent||"").trim(),pub:(it.querySelector("pubDate")||{}).textContent||"",img:img}}).filter(it=>it.title);
 }
 async function loadLiveHeadlines(){
   const names=Object.keys(rssFeeds),fresh=[];
@@ -905,7 +910,7 @@ async function loadLiveHeadlines(){
       if(breakingBaseline&&!knownTitles.has(key))fresh.push({src:name,...it});knownTitles.add(key)});
     liveTitles[name]=r.value.slice(0,3)});
   const ok=Object.keys(liveTitles);
-  $("#liveStatus").textContent=ok.length?("Live: "+ok.length+" nga "+names.length+" burime RSS · të tjerët mbajnë titujt e 29 tetorit"):"RSS live s’u lidh tani · po shfaqen titujt e 29 tetorit";
+  $("#liveStatus").textContent=ok.length?("Live: "+ok.length+" nga "+names.length+" burime RSS · të tjerët mbajnë titujt e fundit të ruajtur"):"RSS live s’u lidh tani · po shfaqen titujt e fundit të ruajtur";
   computeClusters();renderHeadlines();renderMyPage();renderLatest();renderPulse();renderTicker();renderSummary();renderStory();renderNewBar();
   if(fresh.length){fresh.sort((a,b)=>new Date(b.pub)-new Date(a.pub));showBreaking(fresh[0].src,fresh[0].title,fresh[0].link)}
   breakingBaseline=true;

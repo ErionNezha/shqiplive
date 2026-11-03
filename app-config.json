@@ -1,0 +1,86 @@
+{
+  "feeds": [
+    {
+      "name": "News24",
+      "url": "https://www.news24.al/feed/"
+    },
+    {
+      "name": "Panorama",
+      "url": "https://panorama.com.al/feed/"
+    },
+    {
+      "name": "Euronews Albania",
+      "url": "https://euronews.al/feed/"
+    },
+    {
+      "name": "Gazeta Shqiptare",
+      "url": "https://gazetashqiptare.al/feed/"
+    },
+    {
+      "name": "JavaNews",
+      "url": "https://javanews.al/feed/"
+    },
+    {
+      "name": "Telegrafi",
+      "url": "https://telegrafi.com/rss"
+    },
+    {
+      "name": "Albeu",
+      "url": "https://albeu.com/feed/"
+    },
+    {
+      "name": "Shqip",
+      "url": "https://shqip.com/feed/"
+    },
+    {
+      "name": "Lajme",
+      "url": "https://www.lajme.al/feed/"
+    },
+    {
+      "name": "Respublica",
+      "url": "https://www.respublica.al/rss.xml"
+    },
+    {
+      "name": "Reporter",
+      "url": "https://www.reporter.al/feed/"
+    },
+    {
+      "name": "Reporteri",
+      "url": "https://reporteri.al/feed/"
+    },
+    {
+      "name": "Lajmi",
+      "url": "https://lajmi.net/feed/"
+    },
+    {
+      "name": "Koha Jonë",
+      "url": "https://kohajone.com/feed/"
+    }
+  ],
+  "channels": [
+    {
+      "name": "News24",
+      "url": "https://tv.balkanweb.com/news24/livestream/playlist.m3u8"
+    },
+    {
+      "name": "Ora News",
+      "url": "https://live1.mediadesk.al/oranews.m3u8"
+    },
+    {
+      "name": "Syri TV",
+      "url": "https://stream.syritv.al/live/syritv/playlist.m3u8"
+    },
+    {
+      "name": "CNA",
+      "url": "https://live1.mediadesk.al/cnatvlive.m3u8"
+    },
+    {
+      "name": "Report TV",
+      "url": "https://deb20stream.duckdns.org/playerhls10.html"
+    },
+    {
+      "name": "Vizion Plus",
+      "url": "https://tringliveviz.akamaized.net/delta/105/out/u/qwaszxerdfcvrtryuy.m3u8"
+    }
+  ]
+}
